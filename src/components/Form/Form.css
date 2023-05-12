@@ -1,0 +1,11 @@
+.form-card {
+  height: 600px;
+  width: 400px;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 40px;
+
+  background-color: grey;
+}
