@@ -1,21 +1,16 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import "./Form.css";
 
 class Form extends React.Component {
-  // constructor(props) {
-  // super(props);
-  // this.props = props;
-  // }
-
   render() {
-    return <></>;
+    return <form action="submit">{this.props.children}</form>;
   }
 }
 
-// Form.propTypes = {
-// placeholder: PropTypes.string,
-// };
+Form.propTypes = {
+  children: PropTypes.node,
+};
 
 export default Form;
