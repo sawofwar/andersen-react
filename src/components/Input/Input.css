@@ -8,7 +8,7 @@
 .input-label {
   font-size: 0.95rem;
   margin: var(--margin-small);
-  margin-top: calc(var(--margin-small) * 2);
+  margin-top: calc(var(--margin-small) * 3);
 }
 
 .input-input {
