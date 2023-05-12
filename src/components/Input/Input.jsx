@@ -6,9 +6,9 @@ import "./Input.css";
 class Input extends React.Component {
   constructor(props) {
     super(props);
-    this.props = props;
 
-    this.inputType = this.props.inputType ?? "text";
+    this.props = props;
+    this.inputType = props.inputType ?? "text";
   }
 
   render() {
