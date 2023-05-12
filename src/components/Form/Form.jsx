@@ -5,7 +5,11 @@ import "./Form.css";
 
 class Form extends React.Component {
   render() {
-    return <form action="submit">{this.props.children}</form>;
+    return (
+      <form className="form-card" action="submit">
+        {this.props.children}
+      </form>
+    );
   }
 }
 

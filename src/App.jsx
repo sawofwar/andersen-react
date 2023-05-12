@@ -1,12 +1,13 @@
 import "./App.css";
 import Input from "./components/Input/Input";
+import Form from "./components/Form/Form";
 
 function App() {
   return (
     <div className="wrapper">
-      <form action="submit">
+      <Form>
         <Input placeholder="Василий" />
-      </form>
+      </Form>
     </div>
   );
 }
