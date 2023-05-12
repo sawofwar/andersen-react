@@ -12,9 +12,12 @@ class Input extends React.Component {
   render() {
     return (
       <div className="input-block">
-        <label htmlFor="name-input">Имя</label>
+        <label className="input-label" htmlFor="name-input">
+          Имя
+        </label>
         <input
           type="text"
+          className="input-input"
           id="name-input"
           placeholder={this.props.placeholder}
         />
