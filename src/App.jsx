@@ -7,6 +7,7 @@ function App() {
     <div className="wrapper">
       <Form>
         <Input placeholder="Василий" />
+        <Input placeholder="Васильев" />
       </Form>
     </div>
   );

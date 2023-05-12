@@ -68,6 +68,11 @@ button:focus-visible {
   }
 } */
 
+:root {
+  --margin-small: 6px;
+  --border-radius: 6px;
+}
+
 * {
   margin: 0;
   padding: 0;

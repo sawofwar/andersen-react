@@ -7,4 +7,15 @@
 
 .input-label {
   font-size: 0.95rem;
+  margin-bottom: var(--margin-small);
+
+  margin-left: var(--margin-small);
+}
+
+.input-input {
+  height: calc(var(--margin-small) * 5);
+  border-radius: var(--border-radius);
+
+  border: 1px solid red;
+  padding-left: var(--margin-small);
 }
