@@ -9,5 +9,12 @@
 
   padding: 40px;
 
-  background-color: grey;
+  background-color: var(--black);
+
+  color: var(--white-yellow-tint);
+
+  /* box-shadow: 0 10px 60px #262626aa; */
+  box-shadow: 0 10px 60px #dddddd33;
+
+  border: 1px solid #dddddd88;
 }

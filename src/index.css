@@ -71,6 +71,12 @@ button:focus-visible {
 :root {
   --margin-small: 6px;
   --border-radius: 6px;
+
+  --yellow: #fdfd2d;
+  --orange: #eda559;
+  --black: #262626;
+  --white: #ddd;
+  --white-yellow-tint: #ffffd5;
 }
 
 * {
@@ -83,9 +89,5 @@ body {
   font-family: Inter, Arial, sans-serif;
   font-size: 18px;
 
-  background: linear-gradient(
-    0deg,
-    rgba(237, 165, 89, 1) 0%,
-    rgba(253, 253, 45, 1) 100%
-  );
+  background: linear-gradient(0deg, #eda559 0%, #fdfd2d 100%);
 }

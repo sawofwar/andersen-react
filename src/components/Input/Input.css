@@ -8,15 +8,16 @@
 .input-label {
   font-size: 0.95rem;
   margin: var(--margin-small);
-  margin-top: calc(var(--margin-small) * 3);
+  margin-top: calc(var(--margin-small) * 4);
 }
 
 .input-input {
   height: calc(var(--margin-small) * 5);
   border-radius: var(--border-radius);
 
-  border: 1px solid red;
+  border: 2px solid var(--orange);
   padding-left: var(--margin-small);
+  padding-right: var(--margin-small);
 }
 
 .input-input::-webkit-outer-spin-button,
