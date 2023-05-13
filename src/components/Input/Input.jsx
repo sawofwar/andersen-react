@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "./Input.css";
 
-// const LINE_LENGTH = 70;
+const LINE_LENGTH = 70;
 
 class Input extends React.Component {
   constructor(props) {
@@ -27,6 +27,9 @@ class Input extends React.Component {
           type={this.inputType}
           placeholder={this.props.placeholder}
           style={this.props.heightInLines && this.inputStyle}
+          maxLength={
+            this.props.heightInLines && LINE_LENGTH * this.heightInLines
+          }
           className="input-input"
           id="name-input"
         />
