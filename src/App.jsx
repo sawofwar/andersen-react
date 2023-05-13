@@ -18,6 +18,8 @@ function App() {
         </Form>
         <BioCard>
           <TextArea label="О себе" id="bio" />
+          <TextArea label="Последний проект" id="last-project" />
+          <TextArea label="Стек технологий" id="tech-stack" />
         </BioCard>
       </BigForm>
     </div>
