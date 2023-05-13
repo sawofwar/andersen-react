@@ -1,5 +1,5 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import "./TextArea.css";
 
@@ -11,11 +11,25 @@ class TextArea extends React.Component {
   }
 
   render() {
-    return <textarea></textarea>;
+    return (
+      <div className="textarea-block">
+        <label className="textarea-label" htmlFor={`${this.props.id}-textarea`}>
+          {this.props.label}
+        </label>
+        <textarea
+          placeholder={this.props.placeholder}
+          className="textarea-textarea"
+          id={`${this.props.id}-textarea`}
+        />
+      </div>
+    );
   }
 }
 
-// TextArea.propTypes = {
-// };
+TextArea.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+};
 
 export default TextArea;
