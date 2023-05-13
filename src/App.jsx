@@ -10,6 +10,10 @@ function App() {
         <Input placeholder="Васильев" label="Фамилия" />
         <Input label="Дата рождения" inputType="date" />
         <Input label="Телефон" placeholder="1-1111-11-11" />
+        <Input placeholder="yoursite.com" label="Сайт" />
+        <Input label="О сeбe" />
+        <Input label="Стек технологий" />
+        <Input label="Описание последнего проекта" />
       </Form>
     </div>
   );
