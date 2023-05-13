@@ -17,13 +17,13 @@ function App() {
           <Input placeholder="Васильев" label="Фамилия" id="surname" />
           <Input label="Дата рождения" inputType="date" id="date" />
           <Input label="Телефон" placeholder="1-1111-11-11" id="phone-number" />
+          <Buttons></Buttons>
         </Form>
         <BioCard>
           <TextArea label="О себе" id="bio" />
           <TextArea label="Последний проект" id="last-project" />
           <TextArea label="Стек технологий" id="tech-stack" />
         </BioCard>
-        <Buttons></Buttons>
       </BigForm>
     </div>
   );
