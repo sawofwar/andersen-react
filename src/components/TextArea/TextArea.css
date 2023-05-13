@@ -12,7 +12,8 @@
 }
 
 .textarea-textarea {
-  height: calc(var(--margin-small) * 5);
+  height: calc(var(--margin-large) * 2.25);
+  width: calc(var(--margin-large) * 6);
 
   padding-left: var(--margin-small);
   padding-right: var(--margin-small);

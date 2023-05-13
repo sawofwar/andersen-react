@@ -8,13 +8,15 @@
   align-items: flex-start;
   justify-content: flex-start;
 
-  padding: 40px;
+  /* padding: 40px; */
 
   background-color: var(--black);
 
   color: var(--white-yellow-tint);
 
-  box-shadow: 0 10px 60px #dddddd33;
+  /* box-shadow: 0 10px 60px #dddddd33; */
 
-  border: 1px solid #dddddd88;
+  /* border: 1px solid #dddddd88; */
+
+  border: 1px solid red;
 }

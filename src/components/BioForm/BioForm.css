@@ -1,8 +1,0 @@
-.bio-card {
-  display: flex;
-  /* align-items: center; */
-
-  margin-left: var(--margin-large);
-
-  padding: 40px;
-}
