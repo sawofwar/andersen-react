@@ -11,7 +11,7 @@ function App() {
         <Input placeholder="Васильев" label="Фамилия" id="surname" />
         <Input label="Дата рождения" inputType="date" id="date" />
         <Input label="Телефон" placeholder="1-1111-11-11" id="phone-number" />
-        <TextArea />
+        <TextArea label="О себе" id="bio" />
       </Form>
     </div>
   );
