@@ -74,6 +74,8 @@ color scheme: https://coolors.co/fdfd2d-eda559-262626-c83e4d-68a357
 
 :root {
   --margin-small: 6px;
+  --margin-large: 64px;
+
   --border-radius: 6px;
 
   --yellow: #fdfd2d;

@@ -4,6 +4,8 @@ import TextArea from "./components/TextArea/TextArea";
 import BigForm from "./components/BigForm/BigForm";
 import Form from "./components/Form/Form";
 
+import BioCard from "./components/Biocard/BioCard";
+
 function App() {
   return (
     <div className="wrapper">
@@ -14,7 +16,9 @@ function App() {
           <Input label="Дата рождения" inputType="date" id="date" />
           <Input label="Телефон" placeholder="1-1111-11-11" id="phone-number" />
         </Form>
-        <TextArea label="О себе" id="bio" />
+        <BioCard>
+          <TextArea label="О себе" id="bio" />
+        </BioCard>
       </BigForm>
     </div>
   );
