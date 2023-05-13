@@ -2,19 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./BigForm.css";
+// import Form from "../Form/Form";
 
-class Form extends React.Component {
+class BigForm extends React.Component {
   render() {
-    return (
-      <form className="form-card" action="submit">
-        {this.props.children}
-      </form>
-    );
+    return <div className="big-form">{this.props.children}</div>;
   }
 }
 
-Form.propTypes = {
+BigForm.propTypes = {
   children: PropTypes.node,
 };
 
-export default Form;
+export default BigForm;
