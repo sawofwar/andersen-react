@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import "./Input.css";
 
+const LINE_LENGTH = 70;
+
 class Input extends React.Component {
   constructor(props) {
     super(props);
