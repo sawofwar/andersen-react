@@ -1,0 +1,12 @@
+.buttons-block {
+  grid-column: 1 / span 2;
+  justify-self: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 0 auto;
+}

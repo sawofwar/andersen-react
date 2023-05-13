@@ -6,6 +6,8 @@ import Form from "./components/Form/Form";
 
 import BioCard from "./components/BioCard/BioCard";
 
+import Buttons from "./components/Buttons/Buttons";
+
 function App() {
   return (
     <div className="wrapper">
@@ -21,6 +23,7 @@ function App() {
           <TextArea label="Последний проект" id="last-project" />
           <TextArea label="Стек технологий" id="tech-stack" />
         </BioCard>
+        <Buttons></Buttons>
       </BigForm>
     </div>
   );
