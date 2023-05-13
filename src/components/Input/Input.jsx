@@ -3,13 +3,11 @@ import PropTypes from "prop-types";
 
 import "./Input.css";
 
-const LINE_LENGTH = 70;
-
 class Input extends React.Component {
   constructor(props) {
     super(props);
-    this.props = props;
 
+    this.props = props;
     this.inputType = props.inputType ?? "text";
   }
 
@@ -22,7 +20,7 @@ class Input extends React.Component {
         <input
           type={this.inputType}
           placeholder={this.props.placeholder}
-          maxLength={this.props.lines * LINE_LENGTH}
+          style={{ height: `${this.props.heightInLines}px` }}
           className="input-input"
           id="name-input"
         />
@@ -35,7 +33,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
   inputType: PropTypes.string,
-  lines: PropTypes.string,
+  heightInLines: PropTypes.number,
 };
 
 export default Input;
