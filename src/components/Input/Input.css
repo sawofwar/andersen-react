@@ -20,8 +20,10 @@
   border: 2px solid var(--orange);
   border-radius: var(--border-radius);
 
-  word-wrap: break-word;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+
+  white-space: pre-wrap;
 }
 
 .input-input::-webkit-outer-spin-button,

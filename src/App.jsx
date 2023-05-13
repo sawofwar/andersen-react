@@ -11,7 +11,7 @@ function App() {
         <Input label="Дата рождения" inputType="date" />
         <Input label="Телефон" placeholder="1-1111-11-11" />
         {/* <Input placeholder="yoursite.com" label="Сайт" /> */}
-        <Input label="О сeбe" heightInLines={7} />
+        <Input label="О сeбe" heightInLines={7} tag="textarea" />
         {/* <Input label="Стек технологий" /> */}
         {/* <Input label="Описание последнего проекта" /> */}
       </Form>

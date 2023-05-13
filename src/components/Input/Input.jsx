@@ -23,16 +23,21 @@ class Input extends React.Component {
         <label className="input-label" htmlFor="name-input">
           {this.props.label}
         </label>
-        <input
-          placeholder={this.props.placeholder}
-          type={this.props.heightInLines ? "textarea" : this.inputType}
-          style={this.props.heightInLines && this.inputStyle}
-          maxLength={
-            this.props.heightInLines && LINE_LENGTH * this.props.heightInLines
-          }
-          className="input-input"
-          id="name-input"
-        />
+
+        {this.props.tag ? (
+          <textarea></textarea>
+        ) : (
+          <input
+            placeholder={this.props.placeholder}
+            type={this.inputType}
+            style={this.props.heightInLines && this.inputStyle}
+            maxLength={
+              this.props.heightInLines && LINE_LENGTH * this.props.heightInLines
+            }
+            className="input-input"
+            id="name-input"
+          />
+        )}
       </div>
     );
   }
@@ -43,6 +48,7 @@ Input.propTypes = {
   label: PropTypes.string,
   inputType: PropTypes.string,
   heightInLines: PropTypes.number,
+  tag: PropTypes.string,
 };
 
 export default Input;
