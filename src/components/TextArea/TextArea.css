@@ -23,6 +23,8 @@
   border-radius: var(--border-radius);
 
   font-family: var(--main-fonts);
+
+  resize: none;
 }
 
 .textarea-textarea::-webkit-outer-spin-button,

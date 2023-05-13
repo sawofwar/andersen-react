@@ -22,7 +22,7 @@ function App() {
             id="phone-number"
             inputType="number"
           />
-          <Buttons></Buttons>
+          <Buttons />
         </Form>
         <BioCard>
           <TextArea label="О себе" id="bio" />
