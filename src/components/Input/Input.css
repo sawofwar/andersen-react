@@ -13,11 +13,15 @@
 
 .input-input {
   height: calc(var(--margin-small) * 5);
-  border-radius: var(--border-radius);
 
-  border: 2px solid var(--orange);
   padding-left: var(--margin-small);
   padding-right: var(--margin-small);
+
+  border: 2px solid var(--orange);
+  border-radius: var(--border-radius);
+
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .input-input::-webkit-outer-spin-button,
