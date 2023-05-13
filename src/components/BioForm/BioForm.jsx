@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./BioCard.css";
+import "./BioForm.css";
 
 class BioCard extends React.Component {
   render() {

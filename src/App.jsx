@@ -4,7 +4,7 @@ import TextArea from "./components/TextArea/TextArea";
 import BigForm from "./components/BigForm/BigForm";
 import Form from "./components/Form/Form";
 
-import BioCard from "./components/Biocard/BioCard";
+import BioForm from "./components/BioForm/BioForm";
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
           <Input label="Дата рождения" inputType="date" id="date" />
           <Input label="Телефон" placeholder="1-1111-11-11" id="phone-number" />
         </Form>
-        <BioCard>
+        <BioForm>
           <TextArea label="О себе" id="bio" />
-        </BioCard>
+        </BioForm>
       </BigForm>
     </div>
   );

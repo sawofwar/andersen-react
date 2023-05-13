@@ -14,7 +14,6 @@ class Input extends React.Component {
   render() {
     return (
       <div className="input-block">
-        {/* 🔥🔥🔥 pass prop for htmlFor && id for input */}
         <label className="input-label" htmlFor={`${this.props.id}-input`}>
           {this.props.label}
         </label>
