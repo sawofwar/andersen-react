@@ -16,18 +16,33 @@ function App() {
           <Input placeholder="Василий" label="Имя" id="name" />
           <Input placeholder="Васильев" label="Фамилия" id="surname" />
           <Input label="Дата рождения" inputType="date" id="date" />
+
           <Input
             label="Телефон"
             placeholder="7-7777-77-77"
             id="phone-number"
             inputType="number"
           />
+          <Input placeholder="www.vasiliy.com" label="Сайт" id="website" />
+
           <Buttons />
         </Form>
         <BioCard>
-          <TextArea label="О себе" id="bio" />
-          <TextArea label="Последний проект" id="last-project" />
-          <TextArea label="Стек технологий" id="tech-stack" />
+          <TextArea
+            placeholder="Меня зовут Василий..."
+            label="О себе"
+            id="bio"
+          />
+          <TextArea
+            placeholder="У меня есть опыт с NodeJS, Express и MongoDB..."
+            label="Стек технологий"
+            id="tech-stack"
+          />
+          <TextArea
+            placeholder="Я работал над приложением для банка..."
+            label="Последний проект"
+            id="last-project"
+          />
         </BioCard>
       </BigForm>
     </div>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "./TextArea.css";
 
-const LINE_LENGTH = 50;
+const LINE_LENGTH = 45;
 
 class TextArea extends React.Component {
   constructor(props) {

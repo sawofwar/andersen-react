@@ -8,7 +8,10 @@
   --small-height: 28px;
   --small-width: 236px;
 
-  --bio-card-height: 470px;
+  --bio-card-height: calc(var(--textarea-height) * 3.87);
+  --bio-card-width: 350px;
+  --big-form-height: 700px;
+  --textarea-height: 140px;
 
   --yellow: #fdfd2d;
   --orange: #eda559;
@@ -32,4 +35,9 @@ body {
   font-size: 18px;
 
   background: linear-gradient(0deg, #eda559 0%, #fdfd2d 100%);
+}
+
+[for="name-input"],
+[for="bio-textarea"] {
+  margin-top: 0;
 }

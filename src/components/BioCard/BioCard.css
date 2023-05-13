@@ -3,11 +3,5 @@
   flex-direction: column;
 
   height: var(--bio-card-height);
-  /* align-items: center; */
-
-  /* margin-left: var(--margin-large); */
-
-  /* padding: 40px; */
-
-  /* border: 1px solid blue; */
+  width: var(--bio-card-width);
 }

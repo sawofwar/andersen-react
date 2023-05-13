@@ -1,8 +1,6 @@
 .textarea-block {
   display: flex;
   flex-direction: column;
-
-  width: clamp(200px, 100%, 250px);
 }
 
 .textarea-label {
@@ -12,8 +10,7 @@
 }
 
 .textarea-textarea {
-  height: calc(var(--margin-large) * 1.7);
-  width: calc(var(--margin-large) * 6.5);
+  height: var(--textarea-height);
 
   padding-left: var(--margin-small);
   padding-right: var(--margin-small);

@@ -7,7 +7,7 @@ class Buttons extends React.Component {
     return (
       <div className="buttons-block">
         <button className="buttons-block__button">Сохранить</button>
-        <button className="buttons-block__button">Отмена</button>
+        <button className="buttons-block__button--cancel">Отмена</button>
       </div>
     );
   }

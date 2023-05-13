@@ -11,7 +11,7 @@
   gap: calc(var(--margin-medium) / 2);
 }
 
-.buttons-block__button {
+[class|="buttons-block__button"] {
   height: var(--small-height);
   width: var(--small-width);
 
@@ -21,4 +21,13 @@
   background-color: var(--yellow);
 
   border: none;
+}
+
+[class|="buttons-block__button"]:hover,
+[class|="buttons-block__button"]:active {
+  background-color: var(--white-yellow-tint);
+}
+
+.buttons-block__button--cancel {
+  background-color: var(--white);
 }
