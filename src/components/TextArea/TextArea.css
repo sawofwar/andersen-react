@@ -19,6 +19,8 @@
 
   border: 2px solid var(--orange);
   border-radius: var(--border-radius);
+
+  font-family: var(--main-fonts);
 }
 
 .textarea-textarea::-webkit-outer-spin-button,

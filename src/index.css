@@ -81,6 +81,8 @@ color scheme: https://coolors.co/fdfd2d-eda559-262626-c83e4d-68a357
   --black: #262626;
   --white: #ddd;
   --white-yellow-tint: #ffffd5;
+
+  --main-fonts: Inter, Arial, sans-serif;
 }
 
 * {
@@ -90,7 +92,7 @@ color scheme: https://coolors.co/fdfd2d-eda559-262626-c83e4d-68a357
 }
 
 body {
-  font-family: Inter, Arial, sans-serif;
+  font-family: var(--main-fonts);
   font-size: 18px;
 
   background: linear-gradient(0deg, #eda559 0%, #fdfd2d 100%);
