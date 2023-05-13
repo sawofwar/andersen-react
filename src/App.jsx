@@ -1,19 +1,17 @@
 import "./App.css";
 import Input from "./components/Input/Input";
+import TextArea from "./components/TextArea/TextArea";
 import Form from "./components/Form/Form";
 
 function App() {
   return (
     <div className="wrapper">
       <Form>
-        <Input placeholder="Василий" label="Имя" />
-        <Input placeholder="Васильев" label="Фамилия" />
-        <Input label="Дата рождения" inputType="date" />
-        <Input label="Телефон" placeholder="1-1111-11-11" />
-        {/* <Input placeholder="yoursite.com" label="Сайт" /> */}
-        <Input label="О сeбe" heightInLines={7} tag="textarea" />
-        {/* <Input label="Стек технологий" /> */}
-        {/* <Input label="Описание последнего проекта" /> */}
+        <Input placeholder="Василий" label="Имя" id="name" />
+        <Input placeholder="Васильев" label="Фамилия" id="surname" />
+        <Input label="Дата рождения" inputType="date" id="date" />
+        <Input label="Телефон" placeholder="1-1111-11-11" id="phone-number" />
+        <TextArea />
       </Form>
     </div>
   );
