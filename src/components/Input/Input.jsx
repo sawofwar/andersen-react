@@ -8,7 +8,7 @@ class Input extends React.Component {
     super(props);
 
     this.props = props;
-    this.inputType = props.inputType ?? "text";
+    this.inputType = props.inputType;
   }
 
   render() {

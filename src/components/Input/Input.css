@@ -26,3 +26,7 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+.input-input:focus {
+  outline: 2px solid var(--yellow);
+}

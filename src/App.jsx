@@ -16,7 +16,12 @@ function App() {
           <Input placeholder="Василий" label="Имя" id="name" />
           <Input placeholder="Васильев" label="Фамилия" id="surname" />
           <Input label="Дата рождения" inputType="date" id="date" />
-          <Input label="Телефон" placeholder="1-1111-11-11" id="phone-number" />
+          <Input
+            label="Телефон"
+            placeholder="7-7777-77-77"
+            id="phone-number"
+            inputType="number"
+          />
           <Buttons></Buttons>
         </Form>
         <BioCard>

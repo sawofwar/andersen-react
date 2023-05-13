@@ -17,6 +17,7 @@
 
   padding-left: var(--margin-small);
   padding-right: var(--margin-small);
+  padding-top: var(--margin-small);
 
   border: 2px solid var(--orange);
   border-radius: var(--border-radius);
@@ -28,4 +29,8 @@
 .textarea-textarea::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.textarea-textarea:focus {
+  outline: 2px solid var(--yellow);
 }
