@@ -37,6 +37,10 @@ body {
   background: linear-gradient(0deg, #eda559 0%, #fdfd2d 100%);
 }
 
+h1 {
+  color: var(--black);
+}
+
 [for="name-input"],
 [for="bio-textarea"] {
   margin-top: 0;

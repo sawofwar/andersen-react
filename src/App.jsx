@@ -11,6 +11,8 @@ import Buttons from "./components/Buttons/Buttons";
 function App() {
   return (
     <div className="wrapper">
+      <h1>Создание анкеты</h1>
+
       <BigForm>
         <Form>
           <Input placeholder="Василий" label="Имя" id="name" />
@@ -40,7 +42,7 @@ function App() {
           />
           <TextArea
             placeholder="Я работал над приложением для банка..."
-            label="Последний проект"
+            label="Описание последнего проекта"
             id="last-project"
           />
         </BioCard>
