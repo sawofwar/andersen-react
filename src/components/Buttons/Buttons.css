@@ -2,11 +2,20 @@
   grid-column: 1 / span 2;
   justify-self: center;
 
+  margin-top: var(--margin-small);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  gap: var(--margin-medium);
 }
 
-button {
-  margin: 0 auto;
+.buttons-block__button {
+  height: var(--small-height);
+  width: var(--small-width);
+
+  border-radius: var(--border-radius);
+
+  font-family: var(--main-fonts);
 }
