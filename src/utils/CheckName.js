@@ -1,4 +1,6 @@
 export function startsWithCapital(str) {
-  const regex = /^[A-ЯA-Z]/;
+  if (str === "") return "empty";
+
+  const regex = /^[A-Z|А-Я]/;
   return regex.test(str);
 }
