@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { startsWithCapital } from "../../utils/CheckName";
+
 import "./Input.css";
 
 class Input extends React.Component {
@@ -9,6 +11,16 @@ class Input extends React.Component {
 
     this.props = props;
     this.inputType = props.inputType;
+
+    this.id = props.id;
+  }
+
+  componentDidMount() {
+    // console.log(this.id);
+  }
+
+  inputChangeHandler(event) {
+    console.log(startsWithCapital(event.target.value));
   }
 
   render() {
@@ -19,6 +31,7 @@ class Input extends React.Component {
         </label>
 
         <input
+          onChange={this.inputChangeHandler}
           placeholder={this.props.placeholder}
           type={this.inputType}
           className="input-input"

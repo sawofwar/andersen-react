@@ -29,6 +29,7 @@ function App() {
 
           <Buttons />
         </Form>
+
         <BioCard>
           <TextArea
             placeholder="Меня зовут Василий..."
