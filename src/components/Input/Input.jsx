@@ -13,16 +13,12 @@ class Input extends React.Component {
     this.id = props.id;
     this.inputType = props.inputType;
 
-    this.labelRef = React.createRef();
-
     this.state = {
       isWarned: false,
     };
   }
 
-  componentDidMount() {
-    console.log(this.labelRef.value);
-  }
+  componentDidMount() {}
 
   inputChangeHandler(event) {
     const isCap = startsWithCapital(event.target.value);
@@ -30,24 +26,25 @@ class Input extends React.Component {
     // reset if empty
     if (isCap === "empty") {
       this.setState({ isWarned: false });
+      event.target.style.outline = "var(--input-normal-outline)";
       return;
     }
 
-    if (!isCap) this.setState({ isWarned: true });
-    else this.setState({ isWarned: false });
+    // toggle warning on change
+    if (!isCap) {
+      this.setState({ isWarned: true });
+      event.target.style.outline = "var(--input-warning-outline)";
+    } else {
+      this.setState({ isWarned: false });
+      event.target.style.outline = "var(--input-normal-outline)";
+    }
   }
 
   render() {
     return (
       <div className="input-block">
-        <label
-          className="input-label"
-          htmlFor={`${this.props.id}-input`}
-          ref={this.labelRef}
-        >
+        <label className="input-label" htmlFor={`${this.props.id}-input`}>
           {this.props.label}
-
-          {this.state.isWarned && "С заглавной"}
         </label>
 
         <input
@@ -57,6 +54,9 @@ class Input extends React.Component {
           className="input-input"
           id={`${this.props.id}-input`}
         />
+        {this.state.isWarned && (
+          <p className="input-warning">Напишите с заглавной буквы</p>
+        )}
       </div>
     );
   }

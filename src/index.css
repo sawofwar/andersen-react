@@ -1,3 +1,4 @@
+/* colour palette: https://coolors.co/fdfd2d-eda559-262626-92d1c3-8bb8a8 */
 :root {
   --margin-small: 6px;
   --margin-medium: 35px;
@@ -17,9 +18,13 @@
   --orange: #eda559;
   --black: #262626;
   --white: #ddd;
+  --red: #ff5d73;
   --white-yellow-tint: #ffffd5;
 
   --main-fonts: Inter, Arial, sans-serif;
+
+  --input-warning-outline: 1px solid var(--red);
+  --input-normal-outline: 1px solid var(--yellow);
 }
 
 * {

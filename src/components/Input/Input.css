@@ -3,10 +3,13 @@
   flex-direction: column;
 
   width: var(--small-width);
+
+  position: relative;
+
+  padding-bottom: 8px;
 }
 
 .input-label {
-  font-size: 0.95rem;
   margin: var(--margin-small);
   margin-top: calc(var(--margin-small) * 4);
 }
@@ -28,5 +31,15 @@
 }
 
 .input-input:focus {
-  outline: 2px solid var(--yellow);
+  outline: var(--input-normal-outline);
+}
+
+.input-warning {
+  color: var(--red);
+  font-size: 0.8rem;
+  margin-top: 8px;
+
+  position: absolute;
+  bottom: -15%;
+  left: var(--margin-small);
 }
