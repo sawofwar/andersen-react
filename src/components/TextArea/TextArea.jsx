@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 
 import "./TextArea.css";
 
-const LINE_LENGTH = 45;
-
 class TextArea extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +18,7 @@ class TextArea extends React.Component {
           placeholder={this.props.placeholder}
           className="textarea-textarea"
           id={`${this.props.id}-textarea`}
-          maxLength={LINE_LENGTH * 7}
+          maxLength="600"
         />
       </div>
     );
