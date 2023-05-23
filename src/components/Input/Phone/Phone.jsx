@@ -1,5 +1,7 @@
 import Input from "../Input";
 
+import { checkPhone } from "../../../utils/CheckPhone";
+
 import "./../Input.css";
 
 class Phone extends Input {
@@ -11,7 +13,23 @@ class Phone extends Input {
     };
   }
 
-  inputChangeHandler() {}
+  inputChangeHandler(event) {
+    const isValid = checkPhone(event.target.value);
+
+    if (isValid === "empty") {
+      this.setState({ isWarned: false });
+      event.target.style.outline = "var(--input-normal-outline)";
+      return;
+    }
+
+    if (!isValid) {
+      this.setState({ isWarned: true });
+      event.target.style.outline = "var(--input-warning-outline)";
+    } else {
+      this.setState({ isWarned: false });
+      event.target.style.outline = "var(--input-normal-outline)";
+    }
+  }
 
   render() {
     return (
@@ -23,12 +41,13 @@ class Phone extends Input {
         <input
           onChange={this.inputChangeHandler.bind(this)}
           placeholder={this.props.placeholder}
-          type="number"
+          type="string"
           className="input-input"
           id={`${this.props.id}-input`}
+          maxLength={12}
         />
         {this.state.isWarned && (
-          <p className="input-warning">Напишите с заглавной буквы</p>
+          <p className="input-warning">Формат: 7-7777-77-77</p>
         )}
       </div>
     );
