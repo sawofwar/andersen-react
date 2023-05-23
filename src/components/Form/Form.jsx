@@ -12,8 +12,18 @@ class Form extends React.Component {
     this.formRef = createRef();
   }
 
+  componentDidMount() {
+    console.log(this.formRef);
+  }
+
   formSubmitHandler(e) {
     e.preventDefault();
+  }
+
+  cancelHandler() {
+    // console.log("cancelHandler called");
+
+    this.formRef?.current.reset();
   }
 
   render() {
@@ -26,7 +36,7 @@ class Form extends React.Component {
       >
         {this.props.children}
 
-        <Buttons />
+        <Buttons onCancel={this.cancelHandler.bind(this)} />
       </form>
     );
   }

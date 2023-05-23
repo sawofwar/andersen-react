@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./Buttons.css";
 
@@ -7,8 +8,13 @@ class Buttons extends React.Component {
     super(props);
   }
 
-  clickCancelButtonHandler(event) {
-    console.log(event.currentTarget);
+  componentDidMount() {
+    // console.log(this.props);
+    // this.onCancel = this.props?.onCancel;
+  }
+
+  clickCancelButtonHandler() {
+    this.props.onCancel();
   }
 
   render() {
@@ -16,7 +22,7 @@ class Buttons extends React.Component {
       <div className="buttons-block">
         <button className="buttons-block__button">Сохранить</button>
         <button
-          onClick={this.clickCancelButtonHandler}
+          onClick={this.clickCancelButtonHandler.bind(this)}
           className="buttons-block__button--cancel"
         >
           Отмена
@@ -25,5 +31,9 @@ class Buttons extends React.Component {
     );
   }
 }
+
+Buttons.propTypes = {
+  onCancel: PropTypes.func,
+};
 
 export default Buttons;
