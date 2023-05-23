@@ -19,7 +19,6 @@ class Form extends React.Component {
 
   formCancelHandler() {
     this.formRef.current.reset();
-    this.props.onCancel();
   }
 
   render() {

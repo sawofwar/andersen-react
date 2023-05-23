@@ -30,14 +30,10 @@ class BigForm extends React.Component {
     this.setState({ resetTriggered: true });
   }
 
-  cancelHandler(targetInput) {
-    // targetInput.textContent = "";
-  }
-
   render() {
     return (
       <div className="big-form">
-        <Form onCancel={this.cancelHandler.bind(this)}>
+        <Form>
           <div className="form-children">
             <Name placeholder="Василий" label="Имя" id="name" />
             <Name placeholder="Васильев" label="Фамилия" id="surname" />
