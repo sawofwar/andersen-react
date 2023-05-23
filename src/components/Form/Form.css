@@ -4,13 +4,10 @@
   gap: var(--margin-large);
 
   display: flex;
-
-  background-color: var(--black);
-
-  color: var(--white-yellow-tint);
 }
 
-.form-children {
+/* .form-children {
   display: flex;
   flex-direction: column;
 }
+ */
