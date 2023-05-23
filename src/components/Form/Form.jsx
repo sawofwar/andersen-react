@@ -21,9 +21,7 @@ class Form extends React.Component {
   }
 
   cancelHandler() {
-    // console.log("cancelHandler called");
-
-    this.formRef?.current.reset();
+    console.log(this.props.onCancel);
   }
 
   render() {
