@@ -1,10 +1,8 @@
-import { startsWithCapital } from "../../../utils/CheckName";
-
 import Input from "../Input";
 
 import "./../Input.css";
 
-class Name extends Input {
+class Phone extends Input {
   constructor(props) {
     super(props);
 
@@ -13,25 +11,7 @@ class Name extends Input {
     };
   }
 
-  inputChangeHandler(event) {
-    const isCap = startsWithCapital(event.target.value);
-
-    // reset if empty
-    if (isCap === "empty") {
-      this.setState({ isWarned: false });
-      event.target.style.outline = "var(--input-normal-outline)";
-      return;
-    }
-
-    // toggle warning on change
-    if (!isCap) {
-      this.setState({ isWarned: true });
-      event.target.style.outline = "var(--input-warning-outline)";
-    } else {
-      this.setState({ isWarned: false });
-      event.target.style.outline = "var(--input-normal-outline)";
-    }
-  }
+  inputChangeHandler() {}
 
   render() {
     return (
@@ -43,7 +23,7 @@ class Name extends Input {
         <input
           onChange={this.inputChangeHandler.bind(this)}
           placeholder={this.props.placeholder}
-          type="text"
+          type="number"
           className="input-input"
           id={`${this.props.id}-input`}
         />
@@ -55,4 +35,4 @@ class Name extends Input {
   }
 }
 
-export default Name;
+export default Phone;
