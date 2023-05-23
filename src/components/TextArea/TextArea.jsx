@@ -10,10 +10,15 @@ class TextArea extends React.Component {
     super(props);
 
     this.spanRef = createRef();
+    this.textAreaRef = createRef();
 
     this.state = {
       isWarned: false,
     };
+  }
+
+  clearText() {
+    this.textAreaRef.current.textContent = "";
   }
 
   textAreaChangeHandler(event) {
@@ -38,6 +43,7 @@ class TextArea extends React.Component {
           {this.props.label}
         </label>
         <textarea
+          ref={this.textAreaRef}
           onChange={this.textAreaChangeHandler.bind(this)}
           placeholder={this.props.placeholder}
           className="textarea-textarea"

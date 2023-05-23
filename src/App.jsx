@@ -8,7 +8,6 @@ import Form from "./components/Form/Form";
 
 import BioCard from "./components/BioCard/BioCard";
 
-import Buttons from "./components/Buttons/Buttons";
 import Phone from "./components/Input/Phone/Phone";
 import Site from "./components/Input/Site/Site";
 
@@ -29,8 +28,6 @@ function App() {
             label="Сайт"
             id="website"
           />
-
-          <Buttons />
         </Form>
 
         <BioCard>

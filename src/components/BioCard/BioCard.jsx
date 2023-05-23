@@ -5,7 +5,7 @@ import "./BioCard.css";
 
 class BioCard extends React.Component {
   render() {
-    return <div className="bio-card">{this.props.children}</div>;
+    return <form className="bio-card">{this.props.children}</form>;
   }
 }
 
