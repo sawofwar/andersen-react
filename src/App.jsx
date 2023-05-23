@@ -10,6 +10,7 @@ import BioCard from "./components/BioCard/BioCard";
 
 import Buttons from "./components/Buttons/Buttons";
 import Phone from "./components/Input/Phone/Phone";
+import Site from "./components/Input/Site/Site";
 
 function App() {
   return (
@@ -23,7 +24,11 @@ function App() {
           <Input label="Дата рождения" inputType="date" id="date" />
 
           <Phone label="Телефон" placeholder="7-7777-77-77" id="phone-number" />
-          <Input placeholder="www.vasiliy.com" label="Сайт" id="website" />
+          <Site
+            placeholder="https://www.vasiliy.com"
+            label="Сайт"
+            id="website"
+          />
 
           <Buttons />
         </Form>
