@@ -10,6 +10,10 @@ class Input extends React.Component {
     this.props = props;
     this.id = props.id;
     this.inputType = props.inputType;
+
+    this.state = {
+      input: "",
+    };
   }
 
   componentDidMount() {}

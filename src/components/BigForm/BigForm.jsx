@@ -32,23 +32,7 @@ class BigForm extends React.Component {
           />
         </Form>
 
-        <BioCard>
-          <TextArea
-            placeholder="Меня зовут Василий..."
-            label="О себе"
-            id="bio"
-          />
-          <TextArea
-            placeholder="У меня есть опыт с NodeJS, Express и MongoDB..."
-            label="Стек технологий"
-            id="tech-stack"
-          />
-          <TextArea
-            placeholder="Я работал над приложением для банка..."
-            label="Описание последнего проекта"
-            id="last-project"
-          />
-        </BioCard>
+        <BioCard></BioCard>
       </div>
     );
   }

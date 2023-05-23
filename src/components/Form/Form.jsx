@@ -12,15 +12,12 @@ class Form extends React.Component {
     this.formRef = createRef();
   }
 
-  componentDidMount() {
-    console.log(this.formRef);
-  }
-
   formSubmitHandler(e) {
     e.preventDefault();
   }
 
   formCancelHandler() {
+    this.formRef.current.reset();
     this.props.onCancel();
   }
 

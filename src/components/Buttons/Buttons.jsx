@@ -8,11 +8,6 @@ class Buttons extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    // console.log(this.props);
-    // this.onCancel = this.props?.onCancel;
-  }
-
   clickCancelButtonHandler() {
     this.props.onCancel();
   }
