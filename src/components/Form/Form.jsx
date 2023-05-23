@@ -20,8 +20,8 @@ class Form extends React.Component {
     e.preventDefault();
   }
 
-  cancelHandler() {
-    console.log(this.props.onCancel);
+  formCancelHandler() {
+    this.props.onCancel();
   }
 
   render() {
@@ -34,7 +34,7 @@ class Form extends React.Component {
       >
         {this.props.children}
 
-        <Buttons onCancel={this.cancelHandler.bind(this)} />
+        <Buttons onCancel={this.formCancelHandler.bind(this)} />
       </form>
     );
   }
@@ -42,6 +42,7 @@ class Form extends React.Component {
 
 Form.propTypes = {
   children: PropTypes.node,
+  onCancel: PropTypes.func,
 };
 
 export default Form;

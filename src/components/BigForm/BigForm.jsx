@@ -19,7 +19,7 @@ class BigForm extends React.Component {
   render() {
     return (
       <div className="big-form">
-        <Form>
+        <Form onCancel={this.cancelHandler.bind(this)}>
           <Name placeholder="Василий" label="Имя" id="name" />
           <Name placeholder="Васильев" label="Фамилия" id="surname" />
           <Input label="Дата рождения" inputType="date" id="date" />
