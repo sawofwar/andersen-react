@@ -1,5 +1,7 @@
 import "./App.css";
 import Input from "./components/Input/Input";
+import Name from "./components/Input/Name/Name";
+
 import TextArea from "./components/TextArea/TextArea";
 import BigForm from "./components/BigForm/BigForm";
 import Form from "./components/Form/Form";
@@ -15,8 +17,8 @@ function App() {
 
       <BigForm>
         <Form>
-          <Input placeholder="Василий" label="Имя" id="name" />
-          <Input placeholder="Васильев" label="Фамилия" id="surname" />
+          <Name placeholder="Василий" label="Имя" id="name" />
+          <Name placeholder="Васильев" label="Фамилия" id="surname" />
           <Input label="Дата рождения" inputType="date" id="date" />
 
           <Input
