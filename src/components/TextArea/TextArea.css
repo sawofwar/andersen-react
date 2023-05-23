@@ -1,6 +1,8 @@
 .textarea-block {
   display: flex;
   flex-direction: column;
+
+  position: relative;
 }
 
 .textarea-label {
@@ -32,4 +34,28 @@
 
 .textarea-textarea:focus {
   outline: 2px solid var(--yellow);
+}
+
+.length-and-warning {
+  display: flex;
+  gap: var(--margin-small);
+
+  position: absolute;
+
+  bottom: calc(var(--margin-small) * -3.5);
+  right: var(--margin-small);
+
+  font-size: 0.8rem;
+}
+
+.length-and-warning > * {
+  display: inline-flex;
+}
+
+.textarea__input-warning {
+  color: var(--red);
+}
+
+.length-indicator {
+  color: gray;
 }

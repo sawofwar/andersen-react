@@ -1,11 +1,34 @@
-import React from "react";
+import React, { createRef } from "react";
 import PropTypes from "prop-types";
 
 import "./TextArea.css";
 
+const MAX_LENGTH = 600;
+
 class TextArea extends React.Component {
   constructor(props) {
     super(props);
+
+    this.spanRef = createRef();
+
+    this.state = {
+      isWarned: false,
+    };
+  }
+
+  textAreaChangeHandler(event) {
+    const input = event.target.value;
+    const lengthIndicator = this.spanRef.current;
+
+    lengthIndicator.textContent = input.length;
+
+    if (input.length > MAX_LENGTH) {
+      this.setState({ isWarned: true });
+      event.target.style.outline = "var(--input-warning-outline)";
+    } else {
+      this.setState({ isWarned: false });
+      event.target.style.outline = "var(--input-normal-outline)";
+    }
   }
 
   render() {
@@ -15,11 +38,21 @@ class TextArea extends React.Component {
           {this.props.label}
         </label>
         <textarea
+          onChange={this.textAreaChangeHandler.bind(this)}
           placeholder={this.props.placeholder}
           className="textarea-textarea"
           id={`${this.props.id}-textarea`}
-          maxLength="600"
         />
+        <div className="length-and-warning">
+          {this.state.isWarned && (
+            <p className="textarea__input-warning">Не более 600 символов</p>
+          )}
+
+          <p className="length-indicator">
+            <span ref={this.spanRef}>0</span>
+            /600
+          </p>
+        </div>
       </div>
     );
   }
