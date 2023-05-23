@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Buttons from "../Buttons/Buttons";
 
 import "./Form.css";
+import BioCard from "../BioCard/BioCard";
 
 class Form extends React.Component {
   constructor(props) {
@@ -32,6 +33,8 @@ class Form extends React.Component {
         {this.props.children}
 
         <Buttons onCancel={this.formCancelHandler.bind(this)} />
+
+        <BioCard></BioCard>
       </form>
     );
   }

@@ -68,6 +68,7 @@ TextArea.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
+  passedState: PropTypes.object,
 };
 
 export default TextArea;

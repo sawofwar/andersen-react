@@ -1,13 +1,16 @@
 .form-card {
-  height: 100%;
-  width: 300px;
+  position: relative;
+
+  gap: var(--margin-large);
 
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
 
   background-color: var(--black);
 
   color: var(--white-yellow-tint);
+}
+
+.form-children {
+  display: flex;
+  flex-direction: column;
 }
