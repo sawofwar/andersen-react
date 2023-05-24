@@ -11,17 +11,6 @@ class BigForm extends React.Component {
     this.state = { resetTriggered: false };
   }
 
-  getTextAreas([...args]) {
-    // this.setState({ resetTriggered: true });
-    // console.log(this.state.textAreas);
-
-    args.forEach((field) => {
-      const textArea = field.current.textAreaRef.current;
-      console.log(textArea);
-      // textArea.textContent = "";
-    });
-  }
-
   triggerReset() {
     this.setState({ resetTriggered: true });
   }

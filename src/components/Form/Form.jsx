@@ -27,10 +27,6 @@ class Form extends React.Component {
     this.formRef = createRef();
   }
 
-  componentDidMount() {
-    console.log(this.nameRef);
-  }
-
   formSubmitHandler(e) {
     e.preventDefault();
   }

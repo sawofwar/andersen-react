@@ -4,7 +4,7 @@ import BigForm from "./components/BigForm/BigForm";
 
 function App() {
   const bigFormCancelHandler = () => {
-    console.log("hello");
+    console.log("");
   };
 
   return (
