@@ -3,6 +3,7 @@ import Input from "../Input";
 import { checkSite } from "../../../utils/CheckSite";
 
 import "./../Input.css";
+import { createRef } from "react";
 
 class Site extends Input {
   constructor(props) {
@@ -11,6 +12,8 @@ class Site extends Input {
     this.state = {
       isWarned: false,
     };
+
+    this.warningRef = createRef();
   }
 
   inputChangeHandler(event) {
@@ -25,9 +28,11 @@ class Site extends Input {
     if (!isValid) {
       this.setState({ isWarned: true });
       event.target.style.outline = "var(--input-warning-outline)";
+      const warningRefCurrent = this.warningRef?.current ?? { textContent: "" };
+      warningRefCurrent.textContent = "Начинается с https://";
     } else {
       this.setState({ isWarned: false });
-      // event.target.style.outline = "var(--input-normal-outline)";
+      event.target.style.outline = "none";
     }
   }
 
@@ -47,7 +52,9 @@ class Site extends Input {
           ref={this.props.forwardedRef}
         />
         {this.state.isWarned && (
-          <p className="input-warning">Начинается с https://</p>
+          <p className="input-warning" ref={this.warningRef}>
+            Начинается с https://
+          </p>
         )}
       </div>
     );

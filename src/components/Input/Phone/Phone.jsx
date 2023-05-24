@@ -3,6 +3,7 @@ import Input from "../Input";
 import { checkPhone } from "../../../utils/CheckPhone";
 
 import "./../Input.css";
+import { createRef } from "react";
 
 class Phone extends Input {
   constructor(props) {
@@ -11,6 +12,8 @@ class Phone extends Input {
     this.state = {
       isWarned: false,
     };
+
+    this.warningRef = createRef();
   }
 
   inputChangeHandler(event) {
@@ -26,9 +29,11 @@ class Phone extends Input {
     if (!isValid) {
       this.setState({ isWarned: true });
       event.target.style.outline = "var(--input-warning-outline)";
+      const warningRefCurrent = this.warningRef?.current ?? { textContent: "" };
+      warningRefCurrent.textContent = "Формат: 7-7777-77-77";
     } else {
       this.setState({ isWarned: false });
-      // event.target.style.outline = "var(--input-normal-outline)";
+      event.target.style.outline = "none";
     }
   }
 
@@ -49,7 +54,9 @@ class Phone extends Input {
           ref={this.props.forwardedRef}
         />
         {this.state.isWarned && (
-          <p className="input-warning">Формат: 7-7777-77-77</p>
+          <p className="input-warning" ref={this.warningRef}>
+            Формат: 7-7777-77-77
+          </p>
         )}
       </div>
     );

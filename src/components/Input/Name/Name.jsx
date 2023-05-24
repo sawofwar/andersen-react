@@ -1,3 +1,4 @@
+import { createRef } from "react";
 import { startsWithCapital } from "../../../utils/CheckName";
 
 import Input from "../Input";
@@ -13,6 +14,7 @@ class Name extends Input {
     };
 
     this.forwardedRef = props.forwardedRef;
+    this.warningRef = createRef();
   }
 
   inputChangeHandler(event) {
@@ -30,9 +32,11 @@ class Name extends Input {
     if (!isCap) {
       this.setState({ isWarned: true });
       event.target.style.outline = "var(--input-warning-outline)";
+      const warningRefCurrent = this.warningRef?.current ?? { textContent: "" };
+      warningRefCurrent.textContent = "Напишите с заглавной буквы";
     } else {
       this.setState({ isWarned: false });
-      // event.target.style.outline = "var(--input-normal-outline)";
+      event.target.style.outline = "none";
     }
   }
 
@@ -52,7 +56,9 @@ class Name extends Input {
           ref={this.forwardedRef}
         />
         {this.state.isWarned && (
-          <p className="input-warning">Напишите с заглавной буквы</p>
+          <p ref={this.warningRef} className="input-warning">
+            Напишите с заглавной буквы
+          </p>
         )}
       </div>
     );

@@ -43,16 +43,25 @@ class Form extends React.Component {
     this.phoneRef.current.style.outline = "none";
     this.siteRef.current.style.outline = "none";
 
+    const inputs = document.getElementsByClassName("input-input");
+    const inputsArray = Array.from(inputs);
+    inputsArray.forEach((input) => (input.value = ""));
+
     const warnings = document.getElementsByClassName("input-warning");
     const warningsArray = Array.from(warnings);
-    console.log(warningsArray);
     warningsArray.forEach((warning) => (warning.textContent = ""));
+
+    const textareas = document.getElementsByClassName("textarea-textarea");
+    const textareasArray = Array.from(textareas);
+    textareasArray.forEach((textarea) => (textarea.style.outline = "none"));
 
     const textareaWarnings = document.getElementsByClassName(
       "textarea__input-warning"
     );
     const textareaWarningsArray = Array.from(textareaWarnings);
-    textareaWarningsArray.forEach((warning) => (warning.textContent = ""));
+    textareaWarningsArray.forEach((warning) => {
+      warning.textContent = "";
+    });
     // this.nameWarningRef.current.style.display = "none";
     // const inputs = document.querySelector;
   }
