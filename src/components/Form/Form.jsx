@@ -11,15 +11,25 @@ import Input from "../Input/Input";
 import Phone from "../Input/Phone/Phone";
 import Site from "../Input/Site/Site";
 
+//TODO: add prop visibility to pass it down and adjust warnings?
+
 class Form extends React.Component {
   constructor(props) {
     super(props);
 
-    this.formRef = createRef();
+    this.nameRef = createRef();
+    this.surnameRef = createRef();
+    this.phoneRef = createRef();
+    this.siteRef = createRef();
+
     this.inputsRef = createRef();
+
+    this.formRef = createRef();
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.nameRef);
+  }
 
   formSubmitHandler(e) {
     e.preventDefault();
@@ -28,7 +38,23 @@ class Form extends React.Component {
   formCancelHandler() {
     this.formRef.current.reset();
 
-    const inputs = document.querySelector;
+    this.nameRef.current.style.outline = "none";
+    this.surnameRef.current.style.outline = "none";
+    this.phoneRef.current.style.outline = "none";
+    this.siteRef.current.style.outline = "none";
+
+    const warnings = document.getElementsByClassName("input-warning");
+    const warningsArray = Array.from(warnings);
+    console.log(warningsArray);
+    warningsArray.forEach((warning) => (warning.textContent = ""));
+
+    const textareaWarnings = document.getElementsByClassName(
+      "textarea__input-warning"
+    );
+    const textareaWarningsArray = Array.from(textareaWarnings);
+    textareaWarningsArray.forEach((warning) => (warning.textContent = ""));
+    // this.nameWarningRef.current.style.display = "none";
+    // const inputs = document.querySelector;
   }
 
   render() {
@@ -40,15 +66,31 @@ class Form extends React.Component {
         onSubmit={this.formSubmitHandler.bind(this)}
       >
         <div className="form-children">
-          <Name placeholder="Василий" label="Имя" id="name" />
-          <Name placeholder="Васильев" label="Фамилия" id="surname" />
+          <Name
+            placeholder="Василий"
+            label="Имя"
+            id="name"
+            forwardedRef={this.nameRef}
+          />
+          <Name
+            placeholder="Васильев"
+            label="Фамилия"
+            id="surname"
+            forwardedRef={this.surnameRef}
+          />
           <Input label="Дата рождения" inputType="date" id="date" />
 
-          <Phone label="Телефон" placeholder="7-7777-77-77" id="phone-number" />
+          <Phone
+            label="Телефон"
+            placeholder="7-7777-77-77"
+            id="phone-number"
+            forwardedRef={this.phoneRef}
+          />
           <Site
             placeholder="https://www.vasiliy.com"
             label="Сайт"
             id="website"
+            forwardedRef={this.siteRef}
           />
         </div>
 

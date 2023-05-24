@@ -30,9 +30,9 @@
   margin: 0;
 }
 
-.input-input:focus {
+/* .input-input:focus {
   outline: var(--input-normal-outline);
-}
+} */
 
 .input-warning {
   color: var(--red);

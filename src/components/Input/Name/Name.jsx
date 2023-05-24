@@ -1,4 +1,3 @@
-import { createRef } from "react";
 import { startsWithCapital } from "../../../utils/CheckName";
 
 import Input from "../Input";
@@ -13,7 +12,7 @@ class Name extends Input {
       isWarned: false,
     };
 
-    this.inputRef = createRef();
+    this.forwardedRef = props.forwardedRef;
   }
 
   inputChangeHandler(event) {
@@ -22,7 +21,8 @@ class Name extends Input {
     // reset if empty
     if (isCap === "empty") {
       this.setState({ isWarned: false });
-      event.target.style.outline = "var(--input-normal-outline)";
+      // event.target.style.outline = "var(--input-normal-outline)";
+      event.target.style.outline = "none";
       return;
     }
 
@@ -32,7 +32,7 @@ class Name extends Input {
       event.target.style.outline = "var(--input-warning-outline)";
     } else {
       this.setState({ isWarned: false });
-      event.target.style.outline = "var(--input-normal-outline)";
+      // event.target.style.outline = "var(--input-normal-outline)";
     }
   }
 
@@ -49,7 +49,7 @@ class Name extends Input {
           type="text"
           className="input-input"
           id={`${this.props.id}-input`}
-          ref={this.inputRef}
+          ref={this.forwardedRef}
         />
         {this.state.isWarned && (
           <p className="input-warning">Напишите с заглавной буквы</p>

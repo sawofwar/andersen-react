@@ -3,10 +3,6 @@ import PropTypes from "prop-types";
 
 import "./BigForm.css";
 import Form from "../Form/Form";
-import Name from "../Input/Name/Name";
-import Input from "../Input/Input";
-import Phone from "../Input/Phone/Phone";
-import Site from "../Input/Site/Site";
 
 class BigForm extends React.Component {
   constructor() {

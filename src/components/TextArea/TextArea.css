@@ -24,6 +24,8 @@
   font-family: var(--main-fonts);
 
   resize: none;
+
+  outline: none;
 }
 
 .textarea-textarea::-webkit-outer-spin-button,
@@ -32,9 +34,9 @@
   margin: 0;
 }
 
-.textarea-textarea:focus {
+/* .textarea-textarea:focus {
   outline: 2px solid var(--yellow);
-}
+} */
 
 .length-and-warning {
   display: flex;

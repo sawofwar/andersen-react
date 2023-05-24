@@ -32,7 +32,7 @@ class TextArea extends React.Component {
       event.target.style.outline = "var(--input-warning-outline)";
     } else {
       this.setState({ isWarned: false });
-      event.target.style.outline = "var(--input-normal-outline)";
+      event.target.style.outline = "none";
     }
   }
 

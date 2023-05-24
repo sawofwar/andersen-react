@@ -18,7 +18,8 @@ class Phone extends Input {
 
     if (isValid === "empty") {
       this.setState({ isWarned: false });
-      event.target.style.outline = "var(--input-normal-outline)";
+      // event.target.style.outline = "var(--input-normal-outline)";
+      event.target.style.outline = "none";
       return;
     }
 
@@ -27,7 +28,7 @@ class Phone extends Input {
       event.target.style.outline = "var(--input-warning-outline)";
     } else {
       this.setState({ isWarned: false });
-      event.target.style.outline = "var(--input-normal-outline)";
+      // event.target.style.outline = "var(--input-normal-outline)";
     }
   }
 
@@ -45,6 +46,7 @@ class Phone extends Input {
           className="input-input"
           id={`${this.props.id}-input`}
           maxLength={12}
+          ref={this.props.forwardedRef}
         />
         {this.state.isWarned && (
           <p className="input-warning">Формат: 7-7777-77-77</p>

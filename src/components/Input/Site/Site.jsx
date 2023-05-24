@@ -18,7 +18,7 @@ class Site extends Input {
 
     if (isValid === "empty") {
       this.setState({ isWarned: false });
-      event.target.style.outline = "var(--input-normal-outline)";
+      event.target.style.outline = "none";
       return;
     }
 
@@ -27,7 +27,7 @@ class Site extends Input {
       event.target.style.outline = "var(--input-warning-outline)";
     } else {
       this.setState({ isWarned: false });
-      event.target.style.outline = "var(--input-normal-outline)";
+      // event.target.style.outline = "var(--input-normal-outline)";
     }
   }
 
@@ -44,6 +44,7 @@ class Site extends Input {
           type="string"
           className="input-input"
           id={`${this.props.id}-input`}
+          ref={this.props.forwardedRef}
         />
         {this.state.isWarned && (
           <p className="input-warning">Начинается с https://</p>
