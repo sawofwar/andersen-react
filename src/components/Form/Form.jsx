@@ -11,6 +11,8 @@ import Input from "../Input/Input";
 import Phone from "../Input/Phone/Phone";
 import Site from "../Input/Site/Site";
 
+import actionTypes from "../../utils/ActionTypes";
+
 //TODO: add prop visibility to pass it down and adjust warnings?
 
 class Form extends React.Component {
@@ -60,6 +62,11 @@ class Form extends React.Component {
     });
     // this.nameWarningRef.current.style.display = "none";
     // const inputs = document.querySelector;
+  }
+
+  componentDidMount() {
+    // this.props.dispatch({ type: actionTypes.NAME_FALSE });
+    /* name, surname, phone, site, description, stack, project */
   }
 
   render() {

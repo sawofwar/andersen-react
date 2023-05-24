@@ -23,7 +23,6 @@ class Name extends Input {
     // reset if empty
     if (isCap === "empty") {
       this.setState({ isWarned: false });
-      // event.target.style.outline = "var(--input-normal-outline)";
       event.target.style.outline = "none";
       return;
     }
