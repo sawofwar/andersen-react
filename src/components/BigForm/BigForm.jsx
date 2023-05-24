@@ -33,24 +33,7 @@ class BigForm extends React.Component {
   render() {
     return (
       <div className="big-form">
-        <Form>
-          <div className="form-children">
-            <Name placeholder="Василий" label="Имя" id="name" />
-            <Name placeholder="Васильев" label="Фамилия" id="surname" />
-            <Input label="Дата рождения" inputType="date" id="date" />
-
-            <Phone
-              label="Телефон"
-              placeholder="7-7777-77-77"
-              id="phone-number"
-            />
-            <Site
-              placeholder="https://www.vasiliy.com"
-              label="Сайт"
-              id="website"
-            />
-          </div>
-        </Form>
+        <Form></Form>
       </div>
     );
   }
