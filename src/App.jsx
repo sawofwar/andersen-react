@@ -53,12 +53,12 @@ class App extends React.Component {
     this.state = initialState;
   }
 
-  componentDidMount() {
-    setInterval(() => {
-      console.log(this.state);
-      // console.log(this.state.description);
-    }, 5000);
-  }
+  // componentDidMount() {
+  //   setInterval(() => {
+  //     console.log(this.state);
+  //     // console.log(this.state.description);
+  //   }, 5000);
+  // }
 
   dispatch = (action, value) => {
     this.setState((prevState) => reducer(prevState, action, value));

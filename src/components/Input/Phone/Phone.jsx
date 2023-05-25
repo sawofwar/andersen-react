@@ -14,12 +14,44 @@ class Phone extends Input {
 
     this.state = {
       isWarned: false,
+      avoidHyphen: false,
     };
 
     this.warningRef = createRef();
   }
 
   inputChangeHandler(event) {
+    const target = event.target;
+    const targetValue = event.target.value;
+
+    if (
+      (targetValue.at(-1) === "-" && targetValue.length !== 2) ||
+      (targetValue.at(-1) === "-" && targetValue.length !== 7) ||
+      (targetValue.at(-1) === "-" && targetValue.length !== 10)
+    ) {
+      const targetValueArray = targetValue.split("");
+      targetValueArray.pop();
+      target.value = targetValueArray.join("");
+    }
+
+    if (
+      event.target.value.length === 1 &&
+      event.target.value !== "-" &&
+      this.state.avoidHyphen === false
+    ) {
+      target.value = target.value + "-";
+    } else if (
+      event.target.value.length === 6 &&
+      this.state.avoidHyphen === false
+    ) {
+      target.value = target.value + "-";
+    } else if (
+      event.target.value.length === 9 &&
+      this.state.avoidHyphen === false
+    ) {
+      target.value = target.value + "-";
+    }
+
     const isValid = checkPhone(event.target.value);
 
     if (isValid === "empty") {
@@ -49,6 +81,19 @@ class Phone extends Input {
     }
   }
 
+  keyDownHandler(event) {
+    const target = event.target;
+
+    if (event.code === "Backspace") {
+      this.setState({ ...this.state, avoidHyphen: true });
+      target.length = target.length - 1;
+
+      setTimeout(() => {
+        this.setState({ ...this.state, avoidHyphen: false });
+      }, 10);
+    }
+  }
+
   render() {
     return (
       <div className="input-block">
@@ -64,6 +109,7 @@ class Phone extends Input {
           id={`${this.props.id}-input`}
           maxLength={12}
           ref={this.props.forwardedRef}
+          onKeyDown={this.keyDownHandler.bind(this)}
         />
         {this.state.isWarned && (
           <p className="input-warning" ref={this.warningRef}>
