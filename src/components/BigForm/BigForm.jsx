@@ -7,12 +7,57 @@ import actionTypes from "../../utils/ActionTypes";
 
 const initialState = {
   nameValid: false,
+  surnameValid: false,
+  phoneValid: false,
+  siteValid: false,
+  descriptionValid: false,
+  stackValid: false,
+  projectValid: false,
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case actionTypes.NAME_TRUE:
-      return { nameValid: true };
+      return { ...state, nameValid: true };
+
+    case actionTypes.NAME_FALSE:
+      return { ...state, nameValid: false };
+
+    case actionTypes.SURNAME_TRUE:
+      return { ...state, surnameValid: true };
+
+    case actionTypes.SURNAME_FALSE:
+      return { ...state, surnameValid: false };
+
+    case actionTypes.PHONE_TRUE:
+      return { ...state, phoneValid: true };
+
+    case actionTypes.PHONE_FALSE:
+      return { ...state, phoneValid: false };
+
+    case actionTypes.SITE_TRUE:
+      return { ...state, siteValid: true };
+
+    case actionTypes.SITE_FALSE:
+      return { ...state, siteValid: false };
+
+    case actionTypes.DESCRIPTION_TRUE:
+      return { ...state, descriptionValid: true };
+
+    case actionTypes.DESCRIPTION_FALSE:
+      return { ...state, descriptionValid: false };
+
+    case actionTypes.STACK_TRUE:
+      return { ...state, stackValid: true };
+
+    case actionTypes.STACK_FALSE:
+      return { ...state, stackValid: false };
+
+    case actionTypes.PROJECT_TRUE:
+      return { ...state, projectValid: true };
+
+    case actionTypes.PROJECT_FALSE:
+      return { ...state, projectValid: false };
   }
 };
 
@@ -21,6 +66,12 @@ class BigForm extends React.Component {
     super();
 
     this.state = initialState;
+  }
+
+  componentDidMount() {
+    // setInterval(() => {
+    //   console.table(this.state);
+    // }, 500);
   }
 
   dispatch = (action) => {
@@ -36,7 +87,7 @@ class BigForm extends React.Component {
   render() {
     return (
       <div className="big-form" onClick={this.bigFormClickHandler.bind(this)}>
-        <Form dispatch={this.dispatch} reducerState={this.initialState}></Form>
+        <Form dispatch={this.dispatch} reducerState={this.state}></Form>
       </div>
     );
   }

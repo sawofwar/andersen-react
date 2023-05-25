@@ -30,6 +30,8 @@ class BioCard extends React.Component {
           label="О себе"
           id="bio"
           passedState={this.passedState}
+          reducerState={this.props.reducerState}
+          dispatch={this.props.dispatch}
         />
         <TextArea
           ref={this.stackRef}
@@ -37,6 +39,8 @@ class BioCard extends React.Component {
           label="Стек технологий"
           id="tech-stack"
           passedState={this.passedState}
+          reducerState={this.props.reducerState}
+          dispatch={this.props.dispatch}
         />
         <TextArea
           ref={this.projectRef}
@@ -44,6 +48,8 @@ class BioCard extends React.Component {
           label="Описание последнего проекта"
           id="last-project"
           passedState={this.passedState}
+          reducerState={this.props.reducerState}
+          dispatch={this.props.dispatch}
         />
       </div>
     );
@@ -54,6 +60,8 @@ BioCard.propTypes = {
   children: PropTypes.node,
   onMount: PropTypes.func,
   passedState: PropTypes.object,
+  reducerState: PropTypes.object,
+  dispatch: PropTypes.func,
 };
 
 export default BioCard;

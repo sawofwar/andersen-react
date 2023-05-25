@@ -5,6 +5,8 @@ import { checkSite } from "../../../utils/CheckSite";
 import "./../Input.css";
 import { createRef } from "react";
 
+import actionTypes from "../../../utils/ActionTypes";
+
 class Site extends Input {
   constructor(props) {
     super(props);
@@ -21,16 +23,22 @@ class Site extends Input {
 
     if (isValid === "empty") {
       this.setState({ isWarned: false });
+      this.props.dispatch({ type: actionTypes.SITE_FALSE });
+
       event.target.style.outline = "none";
       return;
     }
 
     if (!isValid) {
       this.setState({ isWarned: true });
+      this.props.dispatch({ type: actionTypes.SITE_FALSE });
+
       event.target.style.outline = "var(--input-warning-outline)";
       const warningRefCurrent = this.warningRef?.current ?? { textContent: "" };
       warningRefCurrent.textContent = "Начинается с https://";
     } else {
+      this.props.dispatch({ type: actionTypes.SITE_TRUE });
+
       this.setState({ isWarned: false });
       event.target.style.outline = "none";
     }

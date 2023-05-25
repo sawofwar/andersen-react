@@ -5,6 +5,8 @@ import Input from "../Input";
 
 import "./../Input.css";
 
+import actionTypes from "../../../utils/ActionTypes";
+
 class Name extends Input {
   constructor(props) {
     super(props);
@@ -23,6 +25,13 @@ class Name extends Input {
     // reset if empty
     if (isCap === "empty") {
       this.setState({ isWarned: false });
+
+      if (event.target.id === "name-input") {
+        this.props.dispatch({ type: actionTypes.NAME_FALSE });
+      } else if (event.target.id === "surname-input") {
+        this.props.dispatch({ type: actionTypes.SURNAME_FALSE });
+      }
+
       event.target.style.outline = "none";
       return;
     }
@@ -30,11 +39,23 @@ class Name extends Input {
     // toggle warning on change
     if (!isCap) {
       this.setState({ isWarned: true });
-      event.target.style.outline = "var(--input-warning-outline)";
+      if (event.target.id === "name-input") {
+        this.props.dispatch({ type: actionTypes.NAME_FALSE });
+      } else if (event.target.id === "surname-input") {
+        this.props.dispatch({ type: actionTypes.SURNAME_FALSE });
+      }
+
       const warningRefCurrent = this.warningRef?.current ?? { textContent: "" };
       warningRefCurrent.textContent = "Напишите с заглавной буквы";
+      event.target.style.outline = "var(--input-warning-outline)";
     } else {
       this.setState({ isWarned: false });
+      if (event.target.id === "name-input") {
+        this.props.dispatch({ type: actionTypes.NAME_TRUE });
+      } else if (event.target.id === "surname-input") {
+        this.props.dispatch({ type: actionTypes.SURNAME_TRUE });
+      }
+
       event.target.style.outline = "none";
     }
   }

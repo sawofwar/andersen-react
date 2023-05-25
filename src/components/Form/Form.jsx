@@ -60,8 +60,14 @@ class Form extends React.Component {
     textareaWarningsArray.forEach((warning) => {
       warning.textContent = "";
     });
-    // this.nameWarningRef.current.style.display = "none";
-    // const inputs = document.querySelector;
+
+    this.props.dispatch({ type: actionTypes.NAME_FALSE });
+    this.props.dispatch({ type: actionTypes.SURNAME_FALSE });
+    this.props.dispatch({ type: actionTypes.PHONE_FALSE });
+    this.props.dispatch({ type: actionTypes.SITE_FALSE });
+    this.props.dispatch({ type: actionTypes.DESCRIPTION_FALSE });
+    this.props.dispatch({ type: actionTypes.STACK_FALSE });
+    this.props.dispatch({ type: actionTypes.PROJECT_FALSE });
   }
 
   componentDidMount() {
@@ -83,12 +89,16 @@ class Form extends React.Component {
             label="Имя"
             id="name"
             forwardedRef={this.nameRef}
+            reducerState={this.props.reducerState}
+            dispatch={this.props.dispatch}
           />
           <Name
             placeholder="Васильев"
             label="Фамилия"
             id="surname"
             forwardedRef={this.surnameRef}
+            reducerState={this.props.reducerState}
+            dispatch={this.props.dispatch}
           />
           <Input label="Дата рождения" inputType="date" id="date" />
 
@@ -97,18 +107,25 @@ class Form extends React.Component {
             placeholder="7-7777-77-77"
             id="phone-number"
             forwardedRef={this.phoneRef}
+            reducerState={this.props.reducerState}
+            dispatch={this.props.dispatch}
           />
           <Site
             placeholder="https://www.vasiliy.com"
             label="Сайт"
             id="website"
             forwardedRef={this.siteRef}
+            reducerState={this.props.reducerState}
+            dispatch={this.props.dispatch}
           />
         </div>
 
         <Buttons onCancel={this.formCancelHandler.bind(this)} />
 
-        <BioCard></BioCard>
+        <BioCard
+          reducerState={this.props.reducerState}
+          dispatch={this.props.dispatch}
+        />
       </form>
     );
   }
@@ -117,6 +134,8 @@ class Form extends React.Component {
 Form.propTypes = {
   children: PropTypes.node,
   onCancel: PropTypes.func,
+  reducerState: PropTypes.object,
+  dispatch: PropTypes.func,
 };
 
 export default Form;

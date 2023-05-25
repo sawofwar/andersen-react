@@ -5,6 +5,8 @@ import { checkPhone } from "../../../utils/CheckPhone";
 import "./../Input.css";
 import { createRef } from "react";
 
+import actionTypes from "../../../utils/ActionTypes";
+
 class Phone extends Input {
   constructor(props) {
     super(props);
@@ -21,18 +23,23 @@ class Phone extends Input {
 
     if (isValid === "empty") {
       this.setState({ isWarned: false });
-      // event.target.style.outline = "var(--input-normal-outline)";
       event.target.style.outline = "none";
+
+      this.props.dispatch({ type: actionTypes.PHONE_FALSE });
       return;
     }
 
     if (!isValid) {
       this.setState({ isWarned: true });
+      this.props.dispatch({ type: actionTypes.PHONE_FALSE });
+
       event.target.style.outline = "var(--input-warning-outline)";
       const warningRefCurrent = this.warningRef?.current ?? { textContent: "" };
       warningRefCurrent.textContent = "Формат: 7-7777-77-77";
     } else {
       this.setState({ isWarned: false });
+      this.props.dispatch({ type: actionTypes.PHONE_TRUE });
+
       event.target.style.outline = "none";
     }
   }
