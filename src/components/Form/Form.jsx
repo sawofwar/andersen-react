@@ -102,7 +102,12 @@ class Form extends React.Component {
             dispatch={this.props.dispatch}
             appDispatch={this.props.appDispatch}
           />
-          <Input label="Дата рождения" inputType="date" id="date" />
+          <Input
+            label="Дата рождения"
+            inputType="date"
+            id="date"
+            appDispatch={this.props.appDispatch}
+          />
 
           <Phone
             label="Телефон"

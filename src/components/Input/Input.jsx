@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import "./Input.css";
 
+import appActionTypes from "../../utils/AppActionTypes";
+
 class Input extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +12,14 @@ class Input extends React.Component {
     this.props = props;
     this.id = props.id;
     this.inputType = props.inputType;
+  }
+
+  passBirthday(event) {
+    console.log("hi from passBirthday");
+    this.props.appDispatch(
+      { type: appActionTypes.BIRTHDAY_ALTER },
+      event.target.value
+    );
   }
 
   render() {
@@ -24,6 +34,7 @@ class Input extends React.Component {
           type={this.inputType}
           className="input-input"
           id={`${this.props.id}-input`}
+          onChange={this.passBirthday.bind(this)}
         />
       </div>
     );
@@ -35,6 +46,7 @@ Input.propTypes = {
   label: PropTypes.string,
   inputType: PropTypes.string,
   id: PropTypes.string,
+  appDispatch: PropTypes.func,
 };
 
 export default Input;
