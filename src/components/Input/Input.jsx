@@ -15,7 +15,6 @@ class Input extends React.Component {
   }
 
   passBirthday(event) {
-    console.log("hi from passBirthday");
     this.props.appDispatch(
       { type: appActionTypes.BIRTHDAY_ALTER },
       event.target.value

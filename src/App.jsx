@@ -5,14 +5,14 @@ import BigForm from "./components/BigForm/BigForm";
 import appActionTypes from "./utils/AppActionTypes";
 
 const initialState = {
-  name: "",
-  surname: "",
-  birthday: "",
-  phone: "",
-  site: "",
-  description: "",
-  stack: "",
-  project: "",
+  name: "Марина",
+  surname: "Марина",
+  birthday: "20-02-2000",
+  phone: "8-8888-88-88",
+  site: "https://marina.com",
+  description: "МаринаМарина",
+  stack: "МаринаМарина",
+  project: "МаринаМаринаМарина",
   submitted: false,
 };
 
@@ -43,7 +43,6 @@ const reducer = (state, action, value) => {
       return { ...state, project: value };
 
     case appActionTypes.SUBMIT:
-      console.log("submitted");
       return { ...state, submitted: true };
   }
 };
@@ -56,7 +55,7 @@ class App extends React.Component {
 
   componentDidMount() {
     setInterval(() => {
-      console.table(this.state);
+      console.log(this.state);
       // console.log(this.state.description);
     }, 5000);
   }
@@ -72,13 +71,47 @@ class App extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>Создание анкеты</h1>
-
-        <BigForm
-          appState={this.state}
-          appDispatch={this.dispatch}
-          submitter={this.bigFormSubmitHandler.bind(this)}
-        />
+        {this.state.submitted ? (
+          <>
+            <h1>{`${this.state.name} ${this.state.surname}`}</h1>
+            <section className="submitted-info">
+              <p className="submitted-info__birthday">
+                <strong>Дата рождения</strong>: {this.state.birthday}
+              </p>
+              <p className="submitted-info__phone">
+                <strong>Телефон</strong>: {this.state.phone}
+              </p>
+              <p className="submitted-info__site">
+                <strong>Сайт</strong>: {this.state.site}
+              </p>
+              <p className="submitted-info__description">
+                <strong className="textarea-strong">О себе</strong>:<br />{" "}
+                <br /> {this.state.description}
+              </p>
+              <p className="submitted-info__stack">
+                <strong className="textarea-strong">Стек технологий</strong>:
+                <br /> <br />
+                {this.state.stack}
+              </p>
+              <p className="submitted-info__project">
+                <strong className="textarea-strong">
+                  Описание последнего проекта
+                </strong>
+                : <br /> <br />
+                {this.state.project}
+              </p>
+            </section>
+          </>
+        ) : (
+          <>
+            <h1>Создание анкеты</h1>
+            <BigForm
+              appState={this.state}
+              appDispatch={this.dispatch}
+              submitter={this.bigFormSubmitHandler.bind(this)}
+            />
+          </>
+        )}
       </div>
     );
   }
