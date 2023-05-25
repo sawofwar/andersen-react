@@ -60,12 +60,20 @@ class App extends React.Component {
     this.setState((prevState) => reducer(prevState, action, value));
   };
 
+  bigFormSubmitHandler() {
+    console.log("hi from submitter");
+  }
+
   render() {
     return (
       <div className="wrapper">
         <h1>Создание анкеты</h1>
 
-        <BigForm appState={this.state} appDispatch={this.dispatch}></BigForm>
+        <BigForm
+          appState={this.state}
+          appDispatch={this.dispatch}
+          onSubmit={this.bigFormSubmitHandler.bind(this)}
+        />
       </div>
     );
   }

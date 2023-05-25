@@ -129,7 +129,10 @@ class Form extends React.Component {
           />
         </div>
 
-        <Buttons onCancel={this.formCancelHandler.bind(this)} />
+        <Buttons
+          onCancel={this.formCancelHandler.bind(this)}
+          onSubmit={this.props.onSubmit}
+        />
 
         <BioCard
           reducerState={this.props.reducerState}
@@ -147,6 +150,7 @@ Form.propTypes = {
   reducerState: PropTypes.object,
   dispatch: PropTypes.func,
   appDispatch: PropTypes.func,
+  onSubmit: PropTypes.func,
 };
 
 export default Form;

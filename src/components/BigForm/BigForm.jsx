@@ -80,15 +80,9 @@ class BigForm extends React.Component {
     this.setState((prevState) => reducer(prevState, action));
   };
 
-  bigFormClickHandler(event) {
-    const saveButtonClass = "buttons-block__button";
-    const buttonClass = event.target.classList.value;
-    if (buttonClass === saveButtonClass) console.log("save button");
-  }
-
   render() {
     return (
-      <div className="big-form" onClick={this.bigFormClickHandler.bind(this)}>
+      <div className="big-form">
         <Form
           dispatch={this.dispatch}
           reducerState={this.state}

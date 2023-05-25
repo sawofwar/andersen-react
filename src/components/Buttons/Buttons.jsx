@@ -12,10 +12,19 @@ class Buttons extends React.Component {
     this.props.onCancel();
   }
 
+  clickSubmitButtonHandler() {
+    console.log("hello from submitter");
+  }
+
   render() {
     return (
       <div className="buttons-block">
-        <button className="buttons-block__button">Сохранить</button>
+        <button
+          className="buttons-block__button"
+          onClick={this.clickSubmitButtonHandler.bind(this)}
+        >
+          Сохранить
+        </button>
         <button
           onClick={this.clickCancelButtonHandler.bind(this)}
           className="buttons-block__button--cancel"
@@ -29,6 +38,7 @@ class Buttons extends React.Component {
 
 Buttons.propTypes = {
   onCancel: PropTypes.func,
+  onSubmit: PropTypes.func,
 };
 
 export default Buttons;
