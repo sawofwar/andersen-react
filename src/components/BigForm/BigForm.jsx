@@ -70,10 +70,11 @@ class BigForm extends React.Component {
     this.state = initialState;
   }
 
-  componentDidMount() {
-    // setInterval(() => {
-    //   console.table(this.state);
-    // }, 500);
+  submitterHandler() {
+    const booleanValuesFromState = Object.values(this.state);
+    const allAreTrue = booleanValuesFromState.every((value) => value === true);
+
+    if (allAreTrue) this.props.submitter();
   }
 
   dispatch = (action) => {
@@ -87,6 +88,7 @@ class BigForm extends React.Component {
           dispatch={this.dispatch}
           reducerState={this.state}
           appDispatch={this.props.appDispatch}
+          submitter={this.submitterHandler.bind(this)}
         ></Form>
       </div>
     );
@@ -95,6 +97,7 @@ class BigForm extends React.Component {
 
 BigForm.propTypes = {
   appDispatch: PropTypes.func,
+  submitter: PropTypes.func,
 };
 
 export default BigForm;

@@ -13,6 +13,7 @@ const initialState = {
   description: "",
   stack: "",
   project: "",
+  submitted: false,
 };
 
 const reducer = (state, action, value) => {
@@ -40,6 +41,10 @@ const reducer = (state, action, value) => {
 
     case appActionTypes.PROJECT_ALTER:
       return { ...state, project: value };
+
+    case appActionTypes.SUBMIT:
+      console.log("submitted");
+      return { ...state, submitted: true };
   }
 };
 
@@ -61,7 +66,7 @@ class App extends React.Component {
   };
 
   bigFormSubmitHandler() {
-    console.log("hi from submitter");
+    this.dispatch({ type: appActionTypes.SUBMIT });
   }
 
   render() {
@@ -72,7 +77,7 @@ class App extends React.Component {
         <BigForm
           appState={this.state}
           appDispatch={this.dispatch}
-          onSubmit={this.bigFormSubmitHandler.bind(this)}
+          submitter={this.bigFormSubmitHandler.bind(this)}
         />
       </div>
     );

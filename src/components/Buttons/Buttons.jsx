@@ -13,7 +13,7 @@ class Buttons extends React.Component {
   }
 
   clickSubmitButtonHandler() {
-    console.log("hello from submitter");
+    this.props.submitter();
   }
 
   render() {
@@ -38,7 +38,7 @@ class Buttons extends React.Component {
 
 Buttons.propTypes = {
   onCancel: PropTypes.func,
-  onSubmit: PropTypes.func,
+  submitter: PropTypes.func,
 };
 
 export default Buttons;

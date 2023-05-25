@@ -14,6 +14,8 @@ const appActionTypes = {
   STACK_ALTER: "STACK_ALTER",
 
   PROJECT_ALTER: "PROJECT_ALTER",
+
+  SUBMIT: "SUBMIT",
 };
 
 export default appActionTypes;
