@@ -9,6 +9,10 @@
   align-items: center;
 }
 
+h1 {
+  text-align: center;
+}
+
 .submitted-info {
   margin-top: var(--margin-small);
   background-color: var(--black);
@@ -24,4 +28,8 @@
 
 .submitted-info > p {
   margin: var(--margin-medium);
+}
+
+.submitted-info strong {
+  color: var(--yellow);
 }

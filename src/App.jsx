@@ -76,28 +76,29 @@ class App extends React.Component {
             <h1>{`${this.state.name} ${this.state.surname}`}</h1>
             <section className="submitted-info">
               <p className="submitted-info__birthday">
-                <strong>Дата рождения</strong>: {this.state.birthday}
+                <strong>Дата рождения:</strong> &nbsp; &nbsp;{" "}
+                {this.state.birthday}
               </p>
               <p className="submitted-info__phone">
-                <strong>Телефон</strong>: {this.state.phone}
+                <strong>Телефон:</strong> &nbsp; &nbsp; {this.state.phone}
               </p>
               <p className="submitted-info__site">
-                <strong>Сайт</strong>: {this.state.site}
+                <strong>Сайт:</strong> &nbsp; &nbsp; {this.state.site}
               </p>
               <p className="submitted-info__description">
-                <strong className="textarea-strong">О себе</strong>:<br />{" "}
-                <br /> {this.state.description}
+                <strong className="textarea-strong">О себе:</strong>
+                <br /> <br /> {this.state.description}
               </p>
               <p className="submitted-info__stack">
-                <strong className="textarea-strong">Стек технологий</strong>:
+                <strong className="textarea-strong">Стек технологий:</strong>
                 <br /> <br />
                 {this.state.stack}
               </p>
               <p className="submitted-info__project">
                 <strong className="textarea-strong">
-                  Описание последнего проекта
+                  Описание последнего проекта:
                 </strong>
-                : <br /> <br />
+                <br /> <br />
                 {this.state.project}
               </p>
             </section>
