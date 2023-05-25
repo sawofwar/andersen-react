@@ -1,19 +1,21 @@
 import "./App.css";
-
+import React from "react";
 import BigForm from "./components/BigForm/BigForm";
 
-function App() {
-  const bigFormCancelHandler = () => {
+class App extends React.Component {
+  bigFormCancelHandler() {
     console.log("");
-  };
+  }
 
-  return (
-    <div className="wrapper">
-      <h1>Создание анкеты</h1>
+  render() {
+    return (
+      <div className="wrapper">
+        <h1>Создание анкеты</h1>
 
-      <BigForm onCancel={bigFormCancelHandler}></BigForm>
-    </div>
-  );
+        <BigForm onCancel={this.bigFormCancelHandler.bind(this)}></BigForm>
+      </div>
+    );
+  }
 }
 
 export default App;
