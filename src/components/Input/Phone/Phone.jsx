@@ -6,6 +6,7 @@ import "./../Input.css";
 import { createRef } from "react";
 
 import actionTypes from "../../../utils/ActionTypes";
+import appActionTypes from "../../../utils/AppActionTypes";
 
 class Phone extends Input {
   constructor(props) {
@@ -39,6 +40,10 @@ class Phone extends Input {
     } else {
       this.setState({ isWarned: false });
       this.props.dispatch({ type: actionTypes.PHONE_TRUE });
+      this.props.appDispatch(
+        { type: appActionTypes.PHONE_ALTER },
+        event.target.value
+      );
 
       event.target.style.outline = "none";
     }

@@ -91,6 +91,7 @@ class Form extends React.Component {
             forwardedRef={this.nameRef}
             reducerState={this.props.reducerState}
             dispatch={this.props.dispatch}
+            appDispatch={this.props.appDispatch}
           />
           <Name
             placeholder="Васильев"
@@ -99,6 +100,7 @@ class Form extends React.Component {
             forwardedRef={this.surnameRef}
             reducerState={this.props.reducerState}
             dispatch={this.props.dispatch}
+            appDispatch={this.props.appDispatch}
           />
           <Input label="Дата рождения" inputType="date" id="date" />
 
@@ -109,6 +111,7 @@ class Form extends React.Component {
             forwardedRef={this.phoneRef}
             reducerState={this.props.reducerState}
             dispatch={this.props.dispatch}
+            appDispatch={this.props.appDispatch}
           />
           <Site
             placeholder="https://www.vasiliy.com"
@@ -117,6 +120,7 @@ class Form extends React.Component {
             forwardedRef={this.siteRef}
             reducerState={this.props.reducerState}
             dispatch={this.props.dispatch}
+            appDispatch={this.props.appDispatch}
           />
         </div>
 
@@ -125,6 +129,7 @@ class Form extends React.Component {
         <BioCard
           reducerState={this.props.reducerState}
           dispatch={this.props.dispatch}
+          appDispatch={this.props.appDispatch}
         />
       </form>
     );
@@ -136,6 +141,7 @@ Form.propTypes = {
   onCancel: PropTypes.func,
   reducerState: PropTypes.object,
   dispatch: PropTypes.func,
+  appDispatch: PropTypes.func,
 };
 
 export default Form;

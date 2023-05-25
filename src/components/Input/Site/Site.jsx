@@ -6,6 +6,7 @@ import "./../Input.css";
 import { createRef } from "react";
 
 import actionTypes from "../../../utils/ActionTypes";
+import appActionTypes from "../../../utils/AppActionTypes";
 
 class Site extends Input {
   constructor(props) {
@@ -38,6 +39,10 @@ class Site extends Input {
       warningRefCurrent.textContent = "Начинается с https://";
     } else {
       this.props.dispatch({ type: actionTypes.SITE_TRUE });
+      this.props.appDispatch(
+        { type: appActionTypes.SITE_ALTER },
+        event.target.value
+      );
 
       this.setState({ isWarned: false });
       event.target.style.outline = "none";

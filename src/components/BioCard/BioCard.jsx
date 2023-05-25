@@ -32,6 +32,7 @@ class BioCard extends React.Component {
           passedState={this.passedState}
           reducerState={this.props.reducerState}
           dispatch={this.props.dispatch}
+          appDispatch={this.props.appDispatch}
         />
         <TextArea
           ref={this.stackRef}
@@ -41,6 +42,7 @@ class BioCard extends React.Component {
           passedState={this.passedState}
           reducerState={this.props.reducerState}
           dispatch={this.props.dispatch}
+          appDispatch={this.props.appDispatch}
         />
         <TextArea
           ref={this.projectRef}
@@ -50,6 +52,7 @@ class BioCard extends React.Component {
           passedState={this.passedState}
           reducerState={this.props.reducerState}
           dispatch={this.props.dispatch}
+          appDispatch={this.props.appDispatch}
         />
       </div>
     );
@@ -62,6 +65,7 @@ BioCard.propTypes = {
   passedState: PropTypes.object,
   reducerState: PropTypes.object,
   dispatch: PropTypes.func,
+  appDispatch: PropTypes.func,
 };
 
 export default BioCard;

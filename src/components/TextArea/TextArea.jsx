@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./TextArea.css";
 
 import actionTypes from "../../utils/ActionTypes";
+import appActionTypes from "../../utils/AppActionTypes";
 
 const MAX_LENGTH = 600;
 
@@ -55,10 +56,23 @@ class TextArea extends React.Component {
       this.setState({ isWarned: false });
       if (event.target.id === "bio-textarea") {
         this.props.dispatch({ type: actionTypes.DESCRIPTION_TRUE });
+
+        this.props.appDispatch(
+          { type: appActionTypes.DESCRIPTION_ALTER },
+          event.target.value
+        );
       } else if (event.target.id === "tech-stack-textarea") {
         this.props.dispatch({ type: actionTypes.STACK_TRUE });
+        this.props.appDispatch(
+          { type: appActionTypes.STACK_ALTER },
+          event.target.value
+        );
       } else if (event.target.id === "last-project-textarea") {
         this.props.dispatch({ type: actionTypes.PROJECT_TRUE });
+        this.props.appDispatch(
+          { type: appActionTypes.PROJECT_ALTER },
+          event.target.value
+        );
       }
       event.target.style.outline = "none";
     }
@@ -98,6 +112,7 @@ TextArea.propTypes = {
   placeholder: PropTypes.string,
   passedState: PropTypes.object,
   dispatch: PropTypes.func,
+  appDispatch: PropTypes.func,
 };
 
 export default TextArea;

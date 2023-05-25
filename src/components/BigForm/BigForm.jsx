@@ -5,6 +5,8 @@ import Form from "../Form/Form";
 
 import actionTypes from "../../utils/ActionTypes";
 
+import PropTypes from "prop-types";
+
 const initialState = {
   nameValid: false,
   surnameValid: false,
@@ -87,10 +89,18 @@ class BigForm extends React.Component {
   render() {
     return (
       <div className="big-form" onClick={this.bigFormClickHandler.bind(this)}>
-        <Form dispatch={this.dispatch} reducerState={this.state}></Form>
+        <Form
+          dispatch={this.dispatch}
+          reducerState={this.state}
+          appDispatch={this.props.appDispatch}
+        ></Form>
       </div>
     );
   }
 }
+
+BigForm.propTypes = {
+  appDispatch: PropTypes.func,
+};
 
 export default BigForm;

@@ -7,6 +7,8 @@ import "./../Input.css";
 
 import actionTypes from "../../../utils/ActionTypes";
 
+import appActionTypes from "../../../utils/AppActionTypes";
+
 class Name extends Input {
   constructor(props) {
     super(props);
@@ -52,8 +54,16 @@ class Name extends Input {
       this.setState({ isWarned: false });
       if (event.target.id === "name-input") {
         this.props.dispatch({ type: actionTypes.NAME_TRUE });
+        this.props.appDispatch(
+          { type: appActionTypes.NAME_ALTER },
+          event.target.value
+        );
       } else if (event.target.id === "surname-input") {
         this.props.dispatch({ type: actionTypes.SURNAME_TRUE });
+        this.props.appDispatch(
+          { type: appActionTypes.SURNAME_ALTER },
+          event.target.value
+        );
       }
 
       event.target.style.outline = "none";
