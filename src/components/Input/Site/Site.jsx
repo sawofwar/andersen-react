@@ -1,14 +1,14 @@
-import Input from "../Input";
-
 import { checkSite } from "../../../utils/CheckSite";
 
+import PropTypes from "prop-types";
+
 import "./../Input.css";
-import { createRef } from "react";
+import { useState, useRef } from "react";
 
 import actionTypes from "../../../utils/ActionTypes";
 import appActionTypes from "../../../utils/AppActionTypes";
 
-class Site extends Input {
+/* class Site extends Input {
   constructor(props) {
     super(props);
 
@@ -72,6 +72,81 @@ class Site extends Input {
       </div>
     );
   }
-}
+} */
+
+/* this.state = {
+      isWarned: false,
+    };
+
+    this.warningRef = createRef(); */
+
+const Site = ({
+  dispatch,
+  appDispatch,
+  id,
+  label,
+  placeholder,
+  forwardedRef,
+}) => {
+  const [isWarned, setIsWarned] = useState();
+  const warningRef = useRef();
+
+  const inputChangeHandler = (event) => {
+    const isValid = checkSite(event.target.value);
+
+    if (isValid === "empty") {
+      setIsWarned(false);
+      dispatch({ type: actionTypes.SITE_FALSE });
+
+      event.target.style.outline = "none";
+      return;
+    }
+
+    if (!isValid) {
+      setIsWarned(true);
+      dispatch({ type: actionTypes.SITE_FALSE });
+
+      event.target.style.outline = "var(--input-warning-outline)";
+      const warningRefCurrent = warningRef?.current ?? { textContent: "" };
+      warningRefCurrent.textContent = "Начинается с https://";
+    } else {
+      dispatch({ type: actionTypes.SITE_TRUE });
+      appDispatch({ type: appActionTypes.SITE_ALTER }, event.target.value);
+
+      setIsWarned(false);
+      event.target.style.outline = "none";
+    }
+  };
+
+  return (
+    <div className="input-block">
+      <label className="input-label" htmlFor={`${id}-input`}>
+        {label}
+      </label>
+
+      <input
+        onChange={inputChangeHandler}
+        placeholder={placeholder}
+        type="string"
+        className="input-input"
+        id={`${id}-input`}
+        ref={forwardedRef}
+      />
+      {isWarned && (
+        <p className="input-warning" ref={warningRef}>
+          Начинается с https://
+        </p>
+      )}
+    </div>
+  );
+};
+
+Site.propTypes = {
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  id: PropTypes.string,
+  dispatch: PropTypes.func,
+  appDispatch: PropTypes.func,
+};
 
 export default Site;
