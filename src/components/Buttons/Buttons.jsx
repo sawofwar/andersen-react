@@ -44,10 +44,12 @@ Buttons.propTypes = {
 function Buttons({ submitter, onCancel }) {
   const clickSubmitButtonHandler = () => {
     submitter();
+    console.log("submit");
   };
 
   const clickCancelButtonHandler = () => {
     onCancel();
+    console.log("cancel");
   };
 
   return (
