@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import { useState } from "react";
 import BigForm from "./components/BigForm/BigForm";
 
 import appActionTypes from "./utils/AppActionTypes";
@@ -47,75 +47,62 @@ const reducer = (state, action, value) => {
   }
 };
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = initialState;
-  }
+const App = () => {
+  const [state, setState] = useState(initialState);
 
-  // componentDidMount() {
-  //   setInterval(() => {
-  //     console.log(this.state);
-  //     // console.log(this.state.description);
-  //   }, 5000);
-  // }
-
-  dispatch = (action, value) => {
-    this.setState((prevState) => reducer(prevState, action, value));
+  const dispatch = (action, value) => {
+    setState((prevState) => reducer(prevState, action, value));
   };
 
-  bigFormSubmitHandler() {
-    this.dispatch({ type: appActionTypes.SUBMIT });
-  }
+  const bigFormSubmitHandler = () => {
+    dispatch({ type: appActionTypes.SUBMIT });
+  };
 
-  render() {
-    return (
-      <div className="wrapper">
-        {this.state.submitted ? (
-          <>
-            <h1>{`${this.state.name} ${this.state.surname}`}</h1>
-            <section className="submitted-info">
-              <p className="submitted-info__birthday">
-                <strong>Дата рождения:</strong> &nbsp; &nbsp;{" "}
-                {this.state.birthday}
-              </p>
-              <p className="submitted-info__phone">
-                <strong>Телефон:</strong> &nbsp; &nbsp; {this.state.phone}
-              </p>
-              <p className="submitted-info__site">
-                <strong>Сайт:</strong> &nbsp; &nbsp; {this.state.site}
-              </p>
-              <p className="submitted-info__description">
-                <strong className="textarea-strong">О себе:</strong>
-                <br /> <br /> {this.state.description}
-              </p>
-              <p className="submitted-info__stack">
-                <strong className="textarea-strong">Стек технологий:</strong>
-                <br /> <br />
-                {this.state.stack}
-              </p>
-              <p className="submitted-info__project">
-                <strong className="textarea-strong">
-                  Описание последнего проекта:
-                </strong>
-                <br /> <br />
-                {this.state.project}
-              </p>
-            </section>
-          </>
-        ) : (
-          <>
-            <h1>Создание анкеты</h1>
-            <BigForm
-              appState={this.state}
-              appDispatch={this.dispatch}
-              submitter={this.bigFormSubmitHandler.bind(this)}
-            />
-          </>
-        )}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="wrapper">
+      {state.submitted ? (
+        <>
+          <h1>{`${state.name} ${state.surname}`}</h1>
+          <section className="submitted-info">
+            <p className="submitted-info__birthday">
+              <strong>Дата рождения:</strong> &nbsp; &nbsp; {state.birthday}
+            </p>
+            <p className="submitted-info__phone">
+              <strong>Телефон:</strong> &nbsp; &nbsp; {state.phone}
+            </p>
+            <p className="submitted-info__site">
+              <strong>Сайт:</strong> &nbsp; &nbsp; {state.site}
+            </p>
+            <p className="submitted-info__description">
+              <strong className="textarea-strong">О себе:</strong>
+              <br /> <br /> {state.description}
+            </p>
+            <p className="submitted-info__stack">
+              <strong className="textarea-strong">Стек технологий:</strong>
+              <br /> <br />
+              {state.stack}
+            </p>
+            <p className="submitted-info__project">
+              <strong className="textarea-strong">
+                Описание последнего проекта:
+              </strong>
+              <br /> <br />
+              {state.project}
+            </p>
+          </section>
+        </>
+      ) : (
+        <>
+          <h1>Создание анкеты</h1>
+          <BigForm
+            appState={state}
+            appDispatch={dispatch}
+            submitter={bigFormSubmitHandler}
+          />
+        </>
+      )}
+    </div>
+  );
+};
 
 export default App;

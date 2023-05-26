@@ -63,38 +63,6 @@ const reducer = (state, action) => {
   }
 };
 
-/* class BigForm extends React.Component {
-  constructor() {
-    super();
-
-    this.state = initialState;
-  }
-
-  submitterHandler() {
-    const booleanValuesFromState = Object.values(this.state);
-    const allAreTrue = booleanValuesFromState.every((value) => value === true);
-
-    if (allAreTrue) this.props.submitter();
-  }
-
-  dispatch = (action) => {
-    this.setState((prevState) => reducer(prevState, action));
-  };
-
-  render() {
-    return (
-      <div className="big-form">
-        <Form
-          dispatch={this.dispatch}
-          reducerState={this.state}
-          appDispatch={this.props.appDispatch}
-          submitter={this.submitterHandler.bind(this)}
-        ></Form>
-      </div>
-    );
-  }
-} */
-
 const BigForm = ({ appDispatch, submitter }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
