@@ -1,4 +1,4 @@
-import React from "react";
+import { useReducer } from "react";
 
 import "./BigForm.css";
 import Form from "../Form/Form";
@@ -63,7 +63,7 @@ const reducer = (state, action) => {
   }
 };
 
-class BigForm extends React.Component {
+/* class BigForm extends React.Component {
   constructor() {
     super();
 
@@ -93,7 +93,29 @@ class BigForm extends React.Component {
       </div>
     );
   }
-}
+} */
+
+const BigForm = ({ appDispatch, submitter }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const submitterHandler = () => {
+    const booleanValuesFromState = Object.values(state);
+    const allAreTrue = booleanValuesFromState.every((value) => value === true);
+
+    if (allAreTrue) submitter();
+  };
+
+  return (
+    <div className="big-form">
+      <Form
+        dispatch={dispatch}
+        reducerState={state}
+        appDispatch={appDispatch}
+        submitter={submitterHandler}
+      ></Form>
+    </div>
+  );
+};
 
 BigForm.propTypes = {
   appDispatch: PropTypes.func,
