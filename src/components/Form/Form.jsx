@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import PropTypes from "prop-types";
 
 import Buttons from "../Buttons/Buttons";
