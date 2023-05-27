@@ -1,10 +1,9 @@
 import { checkSite } from "../../../utils/CheckSite";
-import React, { forwardRef } from "react";
 
 import PropTypes from "prop-types";
 
 import "./../Input.css";
-import { useState, useRef } from "react";
+import { useState, useRef, forwardRef } from "react";
 
 import actionTypes from "../../../utils/ActionTypes";
 import appActionTypes from "../../../utils/AppActionTypes";

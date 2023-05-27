@@ -4,76 +4,9 @@ import appActionTypes from "../../utils/AppActionTypes";
 
 import PropTypes from "prop-types";
 
+import "./TextArea.css";
+
 const MAX_LENGTH = 600;
-
-// class TextArea extends React.Component {
-//   constructor(props) {
-//     this.textAreaRef = createRef();
-
-//     this.state = {
-//       isWarned: false,
-//     };
-//   }
-
-//   clearText() {
-//     this.textAreaRef.current.textContent = "";
-//   }
-
-//   textAreaChangeHandler(event) {
-//     const input = event.target.value;
-//     const lengthIndicator = this.spanRef.current;
-
-//     lengthIndicator.textContent = input.length;
-
-//     if (input.length > MAX_LENGTH) {
-//       this.setState({ isWarned: true });
-
-//       if (event.target.id === "bio-textarea") {
-//         this.props.dispatch({ type: actionTypes.DESCRIPTION_FALSE });
-//       } else if (event.target.id === "tech-stack-textarea") {
-//         this.props.dispatch({ type: actionTypes.STACK_FALSE });
-//       } else if (event.target.id === "last-project-textarea") {
-//         this.props.dispatch({ type: actionTypes.PROJECT_FALSE });
-//       }
-
-//       this.props.dispatch({ type: actionTypes.DESCRIPTION_FALSE });
-
-//       event.target.style.outline = "var(--input-warning-outline)";
-//     } else if (input.length === 0) {
-//       if (event.target.id === "bio-textarea") {
-//         this.props.dispatch({ type: actionTypes.DESCRIPTION_FALSE });
-//       } else if (event.target.id === "tech-stack-textarea") {
-//         this.props.dispatch({ type: actionTypes.STACK_FALSE });
-//       } else if (event.target.id === "last-project-textarea") {
-//         this.props.dispatch({ type: actionTypes.PROJECT_FALSE });
-//       }
-//     } else {
-//       this.setState({ isWarned: false });
-//       if (event.target.id === "bio-textarea") {
-//         this.props.dispatch({ type: actionTypes.DESCRIPTION_TRUE });
-
-//         this.props.appDispatch(
-//           { type: appActionTypes.DESCRIPTION_ALTER },
-//           event.target.value
-//         );
-//       } else if (event.target.id === "tech-stack-textarea") {
-//         this.props.dispatch({ type: actionTypes.STACK_TRUE });
-//         this.props.appDispatch(
-//           { type: appActionTypes.STACK_ALTER },
-//           event.target.value
-//         );
-//       } else if (event.target.id === "last-project-textarea") {
-//         this.props.dispatch({ type: actionTypes.PROJECT_TRUE });
-//         this.props.appDispatch(
-//           { type: appActionTypes.PROJECT_ALTER },
-//           event.target.value
-//         );
-//       }
-//       event.target.style.outline = "none";
-//     }
-//   }
-
-//
 
 const TextArea = ({ dispatch, appDispatch, id, label, placeholder }) => {
   const textAreaRef = useRef();

@@ -10,6 +10,7 @@
 }
 
 .input-label {
+  font-size: 0.95rem;
   margin: var(--margin-small);
   margin-top: calc(var(--margin-small) * 4);
 }

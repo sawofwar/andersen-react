@@ -13,18 +13,13 @@
 
 .textarea-textarea {
   height: var(--textarea-height);
-
   padding-left: var(--margin-small);
   padding-right: var(--margin-small);
   padding-top: var(--margin-small);
-
-  border: 2px solid var(--orange);
+  border: 1.5px solid var(--orange);
   border-radius: var(--border-radius);
-
   font-family: var(--main-fonts);
-
   resize: none;
-
   outline: none;
 }
 
@@ -33,10 +28,6 @@
   -webkit-appearance: none;
   margin: 0;
 }
-
-/* .textarea-textarea:focus {
-  outline: 2px solid var(--yellow);
-} */
 
 .length-and-warning {
   display: flex;

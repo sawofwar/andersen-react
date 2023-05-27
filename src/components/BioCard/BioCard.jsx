@@ -5,11 +5,6 @@ import TextArea from "../TextArea/TextArea";
 import "./BioCard.css";
 
 const BioCard = ({ dispatch, appDispatch, reducerState }) => {
-  // useEffect(() => {
-  // const textAreas = [bioRef, stackRef, projectRef];
-  // onMount(textAreas);
-  // }, [onMount]);
-
   return (
     <div className="bio-card">
       <TextArea

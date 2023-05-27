@@ -9,7 +9,7 @@
   --small-height: 28px;
   --small-width: 236px;
 
-  --bio-card-height: calc(var(--textarea-height) * 3.87);
+  --bio-card-height: calc(var(--textarea-height) * 3.86);
   --bio-card-width: 350px;
   --big-form-height: 700px;
   --textarea-height: 140px;
@@ -46,7 +46,10 @@ h1 {
   color: var(--black);
 }
 
-[for="name-input"],
-[for="bio-textarea"] {
+[for="name-input"] {
+  margin-top: 0;
+}
+
+.bio-card > div:nth-child(1) > label {
   margin-top: 0;
 }

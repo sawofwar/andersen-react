@@ -1,13 +1,9 @@
 .form-card {
   position: relative;
 
+  /* height: 200px; */
+
   gap: var(--margin-large);
 
   display: flex;
 }
-
-/* .form-children {
-  display: flex;
-  flex-direction: column;
-}
- */
