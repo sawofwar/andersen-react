@@ -1,47 +1,31 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 import "./Input.css";
 
 import appActionTypes from "../../utils/AppActionTypes";
 
-class Input extends React.Component {
-  constructor(props) {
-    super(props);
+export const Input = ({ label, id, inputType, appDispatch }) => {
+  const passBirthday = (event) => {
+    appDispatch({ type: appActionTypes.BIRTHDAY_ALTER }, event.target.value);
+  };
 
-    this.props = props;
-    this.id = props.id;
-    this.inputType = props.inputType;
-  }
+  return (
+    <div className="input-block">
+      <label className="input-label" htmlFor={`${id}-input`}>
+        {label}
+      </label>
 
-  passBirthday(event) {
-    this.props.appDispatch(
-      { type: appActionTypes.BIRTHDAY_ALTER },
-      event.target.value
-    );
-  }
-
-  render() {
-    return (
-      <div className="input-block">
-        <label className="input-label" htmlFor={`${this.props.id}-input`}>
-          {this.props.label}
-        </label>
-
-        <input
-          placeholder={this.props.placeholder}
-          type={this.inputType}
-          className="input-input"
-          id={`${this.props.id}-input`}
-          onChange={this.passBirthday.bind(this)}
-        />
-      </div>
-    );
-  }
-}
+      <input
+        type={inputType}
+        className="input-input"
+        id={`${id}-input`}
+        onChange={passBirthday}
+      />
+    </div>
+  );
+};
 
 Input.propTypes = {
-  placeholder: PropTypes.string,
   label: PropTypes.string,
   inputType: PropTypes.string,
   id: PropTypes.string,

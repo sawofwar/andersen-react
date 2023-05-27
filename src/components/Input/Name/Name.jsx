@@ -9,7 +9,7 @@ import actionTypes from "../../../utils/ActionTypes";
 import appActionTypes from "../../../utils/AppActionTypes";
 
 const Name = forwardRef(
-  ({ dispatch, appDispatch, id, label, placeholder }, forwardedRef) => {
+  ({ dispatch, appDispatch, id, label, placeholder }, ref) => {
     const [isWarned, setIsWarned] = useState(false);
     const warningRef = useRef();
 
@@ -71,7 +71,7 @@ const Name = forwardRef(
           type="text"
           className="input-input"
           id={`${id}-input`}
-          ref={forwardedRef}
+          ref={ref}
         />
         {isWarned && (
           <p ref={warningRef} className="input-warning">

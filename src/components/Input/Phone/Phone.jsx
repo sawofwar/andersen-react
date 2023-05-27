@@ -20,8 +20,8 @@ const Phone = forwardRef(
     },
     forwardedRef
   ) => {
-    const [isWarned, setIsWarned] = useState();
-    const [avoidHyphen, setAvoidHyphen] = useState();
+    const [isWarned, setIsWarned] = useState(false);
+    const [avoidHyphen, setAvoidHyphen] = useState(false);
     const warningRef = useRef();
 
     const inputChangeHandler = (event) => {

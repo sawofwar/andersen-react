@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import Buttons from "../Buttons/Buttons";
@@ -13,16 +13,7 @@ import Site from "../Input/Site/Site";
 
 import actionTypes from "../../utils/ActionTypes";
 
-Form.propTypes = {
-  children: PropTypes.node,
-  onCancel: PropTypes.func,
-  reducerState: PropTypes.object,
-  dispatch: PropTypes.func,
-  appDispatch: PropTypes.func,
-  submitter: PropTypes.func,
-};
-
-function Form({ reducerState, dispatch, appDispatch, submitter }) {
+const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
   const nameRef = useRef();
   const surnameRef = useRef();
   const phoneRef = useRef();
@@ -82,7 +73,7 @@ function Form({ reducerState, dispatch, appDispatch, submitter }) {
           placeholder="Василий"
           label="Имя"
           id="name"
-          forwardedRef={nameRef}
+          ref={nameRef}
           reducerState={reducerState}
           dispatch={dispatch}
           appDispatch={appDispatch}
@@ -91,7 +82,7 @@ function Form({ reducerState, dispatch, appDispatch, submitter }) {
           placeholder="Васильев"
           label="Фамилия"
           id="surname"
-          forwardedRef={surnameRef}
+          ref={surnameRef}
           reducerState={reducerState}
           dispatch={dispatch}
           appDispatch={appDispatch}
@@ -107,7 +98,7 @@ function Form({ reducerState, dispatch, appDispatch, submitter }) {
           label="Телефон"
           placeholder="7-7777-77-77"
           id="phone-number"
-          forwardedRef={phoneRef}
+          ref={phoneRef}
           reducerState={reducerState}
           dispatch={dispatch}
           appDispatch={appDispatch}
@@ -116,7 +107,7 @@ function Form({ reducerState, dispatch, appDispatch, submitter }) {
           placeholder="https://www.vasiliy.com"
           label="Сайт"
           id="website"
-          forwardedRef={siteRef}
+          ref={siteRef}
           reducerState={reducerState}
           dispatch={dispatch}
           appDispatch={appDispatch}
@@ -132,6 +123,14 @@ function Form({ reducerState, dispatch, appDispatch, submitter }) {
       />
     </form>
   );
-}
+};
 
+Form.propTypes = {
+  children: PropTypes.node,
+  onCancel: PropTypes.func,
+  reducerState: PropTypes.object,
+  dispatch: PropTypes.func,
+  appDispatch: PropTypes.func,
+  submitter: PropTypes.func,
+};
 export default Form;
