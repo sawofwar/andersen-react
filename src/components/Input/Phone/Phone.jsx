@@ -26,14 +26,14 @@ const Phone = forwardRef(
     const [avoidHyphen, setAvoidHyphen] = useState(false);
     const warningRef = useRef();
 
-    const inputChangeHandler = (event) => {
+    const inputChangeHandler = ({ target }) => {
       hyphenatePhone(event, avoidHyphen);
 
-      const isValid = checkPhone(event.target.value);
+      const isValid = checkPhone(target.value);
 
       if (isValid === "empty") {
         setIsWarned(false);
-        event.target.style.outline = "none";
+        target.style.outline = "none";
 
         dispatch({ type: actionTypes.PHONE_FALSE });
         return;
@@ -43,15 +43,15 @@ const Phone = forwardRef(
         setIsWarned(true);
         dispatch({ type: actionTypes.PHONE_FALSE });
 
-        event.target.style.outline = "var(--input-warning-outline)";
+        target.style.outline = "var(--input-warning-outline)";
         const warningRefCurrent = warningRef?.current ?? { textContent: "" };
         warningRefCurrent.textContent = "Формат: 7-7777-77-77";
       } else {
         setIsWarned(false);
         dispatch({ type: actionTypes.PHONE_TRUE });
-        appDispatch({ type: appActionTypes.PHONE_ALTER }, event.target.value);
+        appDispatch({ type: appActionTypes.PHONE_ALTER }, target.value);
 
-        event.target.style.outline = "none";
+        target.style.outline = "none";
       }
     };
 
