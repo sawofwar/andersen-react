@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
+import PropTypes from "prop-types";
+
 import actionTypes from "../../utils/ActionTypes";
 import appActionTypes from "../../utils/AppActionTypes";
-
-import PropTypes from "prop-types";
 
 import "./TextArea.css";
 

@@ -1,12 +1,12 @@
 import { useRef, useState, forwardRef } from "react";
-import { startsWithCapital } from "../../../utils/CheckName";
-
 import PropTypes from "prop-types";
-import "./../Input.css";
 
 import actionTypes from "../../../utils/ActionTypes";
-
 import appActionTypes from "../../../utils/AppActionTypes";
+
+import startsWithCapital from "../../../utils/CheckName";
+
+import "./../Input.css";
 
 const Name = forwardRef(
   ({ dispatch, appDispatch, id, label, placeholder }, ref) => {

@@ -1,11 +1,11 @@
 import { useReducer } from "react";
-
-import "./BigForm.css";
-import Form from "../Form/Form";
+import PropTypes from "prop-types";
 
 import actionTypes from "../../utils/ActionTypes";
 
-import PropTypes from "prop-types";
+import Form from "../Form/Form";
+
+import "./BigForm.css";
 
 const initialState = {
   nameValid: false,

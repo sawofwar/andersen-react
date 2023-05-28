@@ -1,23 +1,26 @@
 import { useRef } from "react";
 import PropTypes from "prop-types";
 
-import Buttons from "../Buttons/Buttons";
-
-import "./Form.css";
-import BioCard from "../BioCard/BioCard";
+import actionTypes from "../../utils/ActionTypes";
 
 import Name from "../Input/Name/Name";
 import Phone from "../Input/Phone/Phone";
 import Site from "../Input/Site/Site";
 import Date from "../Input/Date/Date";
 
-import actionTypes from "../../utils/ActionTypes";
+import Buttons from "../Buttons/Buttons";
+
+import BioCard from "../BioCard/BioCard";
+
+import "./Form.css";
 
 const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
   const nameRef = useRef();
   const surnameRef = useRef();
+  const dateRef = useRef();
   const phoneRef = useRef();
   const siteRef = useRef();
+
   const formRef = useRef();
 
   const formSubmitHandler = (e) => {
@@ -29,20 +32,30 @@ const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
 
     nameRef.current.style.outline = "none";
     surnameRef.current.style.outline = "none";
+    dateRef.current.style.outline = "none";
     phoneRef.current.style.outline = "none";
     siteRef.current.style.outline = "none";
 
-    const inputs = document.getElementsByClassName("input-input");
-    const inputsArray = Array.from(inputs);
-    inputsArray.forEach((input) => (input.value = ""));
+    const inputs = [
+      nameRef.current,
+      surnameRef.current,
+      dateRef.current,
+      phoneRef.current,
+      siteRef.current,
+    ];
+    inputs.forEach((input) => (input.value = ""));
 
     const warnings = document.getElementsByClassName("input-warning");
     const warningsArray = Array.from(warnings);
     warningsArray.forEach((warning) => (warning.textContent = ""));
 
+    console.log(warnings);
+
     const textareas = document.getElementsByClassName("textarea-textarea");
     const textareasArray = Array.from(textareas);
     textareasArray.forEach((textarea) => (textarea.style.outline = "none"));
+
+    console.log(textareas);
 
     const textareaWarnings = document.getElementsByClassName(
       "textarea__input-warning"
@@ -88,7 +101,12 @@ const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
           appDispatch={appDispatch}
         />
 
-        <Date label="Дата рождения" id="date" appDispatch={appDispatch} />
+        <Date
+          label="Дата рождения"
+          id="date"
+          appDispatch={appDispatch}
+          ref={dateRef}
+        />
 
         <Phone
           label="Телефон"

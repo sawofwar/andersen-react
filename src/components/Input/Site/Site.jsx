@@ -1,12 +1,12 @@
-import { checkSite } from "../../../utils/CheckSite";
-
-import PropTypes from "prop-types";
-
-import "./../Input.css";
 import { useState, useRef, forwardRef } from "react";
+import PropTypes from "prop-types";
 
 import actionTypes from "../../../utils/ActionTypes";
 import appActionTypes from "../../../utils/AppActionTypes";
+
+import checkSite from "../../../utils/CheckSite";
+
+import "./../Input.css";
 
 const Site = forwardRef(
   ({ dispatch, appDispatch, id, label, placeholder }, forwardedRef) => {

@@ -1,14 +1,13 @@
-import PropTypes from "prop-types";
-
-import { checkPhone } from "../../../utils/CheckPhone";
-
-import "./../Input.css";
 import { useRef, useState, forwardRef } from "react";
+import PropTypes from "prop-types";
 
 import actionTypes from "../../../utils/ActionTypes";
 import appActionTypes from "../../../utils/AppActionTypes";
 
+import checkPhone from "../../../utils/CheckPhone";
 import hyphenatePhone from "../../../utils/HyphenatePhone";
+
+import "./../Input.css";
 
 const Phone = forwardRef(
   (

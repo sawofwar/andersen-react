@@ -1,10 +1,11 @@
+import { forwardRef } from "react";
 import PropTypes from "prop-types";
-
-import "../Input.css";
 
 import appActionTypes from "../../../utils/AppActionTypes";
 
-export const Date = ({ label, id, appDispatch }) => {
+import "../Input.css";
+
+export const Date = forwardRef(({ label, id, appDispatch }, ref) => {
   const passBirthday = (event) => {
     appDispatch({ type: appActionTypes.BIRTHDAY_ALTER }, event.target.value);
   };
@@ -22,15 +23,18 @@ export const Date = ({ label, id, appDispatch }) => {
         className="input-input"
         id={`${id}-input`}
         onChange={passBirthday}
+        ref={ref}
       />
     </div>
   );
-};
+});
 
 Date.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string,
   appDispatch: PropTypes.func,
 };
+
+Date.displayName = "Date";
 
 export default Date;
