@@ -6,6 +6,8 @@ import appActionTypes from "../../../utils/AppActionTypes";
 
 import checkSite from "../../../utils/CheckSite";
 
+import InputWarning from "../../InputWarning/InputWarning";
+
 import "./../Input.css";
 
 const Site = forwardRef(
@@ -13,14 +15,14 @@ const Site = forwardRef(
     const [isWarned, setIsWarned] = useState(false);
     const warningRef = useRef();
 
-    const inputChangeHandler = (event) => {
-      const isValid = checkSite(event.target.value);
+    const inputChangeHandler = ({ target }) => {
+      const isValid = checkSite(target.value);
 
       if (isValid === "empty") {
         setIsWarned(false);
         dispatch({ type: actionTypes.SITE_FALSE });
 
-        event.target.style.outline = "none";
+        target.style.outline = "none";
         return;
       }
 
@@ -28,17 +30,16 @@ const Site = forwardRef(
         setIsWarned(true);
         dispatch({ type: actionTypes.SITE_FALSE });
 
-        event.target.style.outline = "var(--input-warning-outline)";
-        const warningRefCurrent = warningRef.current;
-        if (warningRefCurrent) {
-          warningRefCurrent.textContent = "Начинается с https://";
+        target.style.outline = "var(--input-warning-outline)";
+        if (warningRef.current) {
+          setIsWarned(true);
         }
       } else {
         dispatch({ type: actionTypes.SITE_TRUE });
-        appDispatch({ type: appActionTypes.SITE_ALTER }, event.target.value);
+        appDispatch({ type: appActionTypes.SITE_ALTER }, target.value);
 
         setIsWarned(false);
-        event.target.style.outline = "none";
+        target.style.outline = "none";
       }
     };
 
@@ -56,11 +57,7 @@ const Site = forwardRef(
           id={`${id}-input`}
           ref={forwardedRef}
         />
-        {isWarned && (
-          <p className="input-warning" ref={warningRef}>
-            Начинается с https://
-          </p>
-        )}
+        {isWarned ? <InputWarning ref={warningRef} /> : null}
       </div>
     );
   }
