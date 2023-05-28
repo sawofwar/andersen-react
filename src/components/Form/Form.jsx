@@ -122,7 +122,6 @@ const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
 };
 
 Form.propTypes = {
-  children: PropTypes.node,
   onCancel: PropTypes.func,
   reducerState: PropTypes.object,
   dispatch: PropTypes.func,

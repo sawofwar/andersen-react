@@ -13,49 +13,46 @@ const Name = forwardRef(
     const [isWarned, setIsWarned] = useState(false);
     const warningRef = useRef();
 
-    const inputChangeHandler = (event) => {
-      const isCap = startsWithCapital(event.target.value);
+    const inputChangeHandler = ({ target }) => {
+      const isCap = startsWithCapital(target.value);
 
       // reset if empty
       if (isCap === "empty") {
         setIsWarned(false);
 
-        if (event.target.id === "name-input") {
+        if (target.id === "name-input") {
           dispatch({ type: actionTypes.NAME_FALSE });
-        } else if (event.target.id === "surname-input") {
+        } else if (target.id === "surname-input") {
           dispatch({ type: actionTypes.SURNAME_FALSE });
         }
 
-        event.target.style.outline = "none";
+        target.style.outline = "none";
         return;
       }
 
       // toggle warning on change
       if (!isCap) {
         setIsWarned(true);
-        if (event.target.id === "name-input") {
+        if (target.id === "name-input") {
           dispatch({ type: actionTypes.NAME_FALSE });
-        } else if (event.target.id === "surname-input") {
+        } else if (target.id === "surname-input") {
           dispatch({ type: actionTypes.SURNAME_FALSE });
         }
 
         const warningRefCurrent = warningRef?.current ?? { textContent: "" };
         warningRefCurrent.textContent = "Напишите с заглавной буквы";
-        event.target.style.outline = "var(--input-warning-outline)";
+        target.style.outline = "var(--input-warning-outline)";
       } else {
         setIsWarned(false);
-        if (event.target.id === "name-input") {
+        if (target.id === "name-input") {
           dispatch({ type: actionTypes.NAME_TRUE });
-          appDispatch({ type: appActionTypes.NAME_ALTER }, event.target.value);
-        } else if (event.target.id === "surname-input") {
+          appDispatch({ type: appActionTypes.NAME_ALTER }, target.value);
+        } else if (target.id === "surname-input") {
           dispatch({ type: actionTypes.SURNAME_TRUE });
-          appDispatch(
-            { type: appActionTypes.SURNAME_ALTER },
-            event.target.value
-          );
+          appDispatch({ type: appActionTypes.SURNAME_ALTER }, target.value);
         }
 
-        event.target.style.outline = "none";
+        target.style.outline = "none";
       }
     };
 
