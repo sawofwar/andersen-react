@@ -8,6 +8,8 @@ import { useRef, useState, forwardRef } from "react";
 import actionTypes from "../../../utils/ActionTypes";
 import appActionTypes from "../../../utils/AppActionTypes";
 
+import hyphenatePhone from "../../../utils/HyphenatePhone";
+
 const Phone = forwardRef(
   (
     {
@@ -25,30 +27,7 @@ const Phone = forwardRef(
     const warningRef = useRef();
 
     const inputChangeHandler = (event) => {
-      const target = event.target;
-      const targetValue = event.target.value;
-
-      if (
-        (targetValue.at(-1) === "-" && targetValue.length !== 2) ||
-        (targetValue.at(-1) === "-" && targetValue.length !== 7) ||
-        (targetValue.at(-1) === "-" && targetValue.length !== 10)
-      ) {
-        const targetValueArray = targetValue.split("");
-        targetValueArray.pop();
-        target.value = targetValueArray.join("");
-      }
-
-      if (
-        event.target.value.length === 1 &&
-        event.target.value !== "-" &&
-        avoidHyphen === false
-      ) {
-        target.value = target.value + "-";
-      } else if (event.target.value.length === 6 && avoidHyphen === false) {
-        target.value = target.value + "-";
-      } else if (event.target.value.length === 9 && avoidHyphen === false) {
-        target.value = target.value + "-";
-      }
+      hyphenatePhone(event, avoidHyphen);
 
       const isValid = checkPhone(event.target.value);
 

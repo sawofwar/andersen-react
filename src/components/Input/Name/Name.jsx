@@ -89,7 +89,6 @@ Name.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
   id: PropTypes.string,
-  // reducerState: PropTypes.object,
 };
 
 Name.displayName = "Name";

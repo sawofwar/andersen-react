@@ -17,6 +17,8 @@ export const Date = ({ label, id, appDispatch }) => {
 
       <input
         type="date"
+        min="1900-01-01"
+        max="2023-01-01"
         className="input-input"
         id={`${id}-input`}
         onChange={passBirthday}

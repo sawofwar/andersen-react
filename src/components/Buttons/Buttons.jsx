@@ -19,6 +19,7 @@ function Buttons({ submitter, onCancel }) {
       >
         Сохранить
       </button>
+
       <button
         onClick={clickCancelButtonHandler}
         className="buttons-block__button--cancel"
