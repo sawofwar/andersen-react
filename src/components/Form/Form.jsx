@@ -7,9 +7,9 @@ import "./Form.css";
 import BioCard from "../BioCard/BioCard";
 
 import Name from "../Input/Name/Name";
-import Input from "../Input/Input";
 import Phone from "../Input/Phone/Phone";
 import Site from "../Input/Site/Site";
+import Date from "../Input/Date/Date";
 
 import actionTypes from "../../utils/ActionTypes";
 
@@ -87,12 +87,8 @@ const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
           dispatch={dispatch}
           appDispatch={appDispatch}
         />
-        <Input
-          label="Дата рождения"
-          inputType="date"
-          id="date"
-          appDispatch={appDispatch}
-        />
+
+        <Date label="Дата рождения" id="date" appDispatch={appDispatch} />
 
         <Phone
           label="Телефон"
