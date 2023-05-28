@@ -21,6 +21,8 @@ const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
   const phoneRef = useRef();
   const siteRef = useRef();
 
+  const warningRef = useRef();
+
   const formRef = useRef();
 
   const formSubmitHandler = (e) => {
@@ -43,6 +45,7 @@ const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
       phoneRef.current,
       siteRef.current,
     ];
+    // inputs.forEach((input) => (input.value = ""));
     inputs.forEach((input) => (input.value = ""));
 
     const warnings = document.getElementsByClassName("input-warning");
@@ -74,12 +77,17 @@ const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
     dispatch({ type: actionTypes.PROJECT_FALSE });
   };
 
+  const formChangeHandler = () => {
+    console.log("form changed");
+  };
+
   return (
     <form
       ref={formRef}
       className="form-card"
       action="submit"
       onSubmit={formSubmitHandler}
+      onChange={formChangeHandler}
     >
       <div className="form-children">
         <Name
@@ -125,6 +133,7 @@ const Form = ({ reducerState, dispatch, appDispatch, submitter }) => {
           reducerState={reducerState}
           dispatch={dispatch}
           appDispatch={appDispatch}
+          warningRef={warningRef}
         />
       </div>
 

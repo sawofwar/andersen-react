@@ -12,33 +12,33 @@ import "./../Input.css";
 
 const Site = forwardRef(
   ({ dispatch, appDispatch, id, label, placeholder }, forwardedRef) => {
-    const [isWarned, setIsWarned] = useState(false);
+    const [isValid, setisValid] = useState(false);
     const warningRef = useRef();
 
     const inputChangeHandler = ({ target }) => {
-      const isValid = checkSite(target.value);
+      const isSuccessfullyChecked = checkSite(target.value);
 
-      if (isValid === "empty") {
-        setIsWarned(false);
+      if (isSuccessfullyChecked === "empty") {
+        setisValid(false);
         dispatch({ type: actionTypes.SITE_FALSE });
 
         target.style.outline = "none";
         return;
       }
 
-      if (!isValid) {
-        setIsWarned(true);
+      if (!isSuccessfullyChecked) {
+        setisValid(true);
         dispatch({ type: actionTypes.SITE_FALSE });
 
         target.style.outline = "var(--input-warning-outline)";
         if (warningRef.current) {
-          setIsWarned(true);
+          setisValid(true);
         }
       } else {
         dispatch({ type: actionTypes.SITE_TRUE });
         appDispatch({ type: appActionTypes.SITE_ALTER }, target.value);
 
-        setIsWarned(false);
+        setisValid(false);
         target.style.outline = "none";
       }
     };
@@ -57,7 +57,7 @@ const Site = forwardRef(
           id={`${id}-input`}
           ref={forwardedRef}
         />
-        {isWarned ? <InputWarning ref={warningRef} /> : null}
+        {isValid ? <InputWarning ref={warningRef} /> : null}
       </div>
     );
   }
